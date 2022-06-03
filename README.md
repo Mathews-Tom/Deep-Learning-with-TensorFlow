@@ -1,2 +1,3 @@
-# Zero_to_Mastery_Deep_Learning_with_TensorFlow
-Zero to Mastery Deep Learning with TensorFlow
+# Zero to Mastery Deep Learning with TensorFlow
+
+My course work for [Zero to Mastery Deep Learning with TensorFlow](https://dbourke.link/ZTMTFcourse) with references to original material and my personalized notes and content.
