@@ -137,5 +137,14 @@ The video content for the course can be found as part of multiple playlists from
 - [03.35 - Multi-class CNN's - Part 9 (Making predictions with our model on custom images) (9:22)]
 - [03.36 - Saving and loading our trained CNN model (6:21)]
 
-## 04 - [Transfer Learning in TensorFlow - Part 1 :: Feature Extraction]
-
+## 04 - Transfer Learning in TensorFlow - Part 1 :: Feature Extraction
+- [04.01 - What is and why use transfer learning? (10:12)]
+- [04.02 - Downloading and preparing data for our first transfer learning model (14:39)]
+- [04.03 - Introducing Callbacks in TensorFlow and making a callback to track our models (10:01)]
+- [04.04 - Exploring the TensorFlow Hub website for pretrained models (9:51)]
+- [04.05 - Building and compiling a TensorFlow Hub feature extraction model (14:00)]
+- [04.06 - Blowing our previous models out of the water with transfer learning (9:13)]
+- [04.07 - Plotting the loss curves of our ResNet feature extraction model (7:35)]
+- [04.08 - Building and training a pre-trained EfficientNet model on our data (9:42)]
+- [04.09 - Different Types of Transfer Learning (11:40)]
+- [04.10 - Comparing Our Model's Results (15:16)]
