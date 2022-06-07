@@ -19,24 +19,6 @@ from sklearn.metrics import confusion_matrix, accuracy_score, \
     precision_recall_fscore_support
 
 
-@register_cell_magic('handle_exception')
-def handle_exception(line, cell):
-    """
-    Registering custom magic command to run a cell which we are expecting to \
-        fail and be able to continue running following cells
-    """
-    FAIL = '\033[91m'
-    ENDC = '\033[0m'
-
-    c = ColorTB()
-    try:
-        exec(cell)
-    except Exception as e:
-        print(f"{FAIL}{e}{ENDC}\n")
-        exc = sys.exc_info()
-        print(''.join(c.structured_traceback(*exc)))
-
-
 def load_and_prepare_image(filename, img_shape=224, scale=True):
     """
     Reads in an image from filename, turns it into a tensor and reshapes into
@@ -297,6 +279,8 @@ def download_and_extract_data(storage_url: str) -> None:
     with ZipFile(filename, "r") as zip_ref:
         print(f"Extracting from zip file: {filename}")
         zip_ref.extractall()
+
+    shutil.rmtree("__MACOSX")
 
 
 def walk_through_directory(dir_path):
