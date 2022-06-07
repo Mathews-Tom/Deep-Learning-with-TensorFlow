@@ -1,5 +1,5 @@
-### We create a bunch of helpful functions throughout the course.
-### Storing them here so they're easily accessible.
+# We create a bunch of helpful functions throughout the course.
+# Storing them here so they're easily accessible.
 
 import os
 import datetime
@@ -27,7 +27,7 @@ def handle_exception(line, cell):
     """
     FAIL = '\033[91m'
     ENDC = '\033[0m'
-    
+
     c = ColorTB()
     try:
         exec(cell)
@@ -61,9 +61,9 @@ def load_and_prepare_image(filename, img_shape=224, scale=True):
         return img
 
 
-# Note: The following confusion matrix code is a remix of Scikit-Learn's 
+# Note: The following confusion matrix code is a remix of Scikit-Learn's
 # plot_confusion_matrix function - https://scikit-learn.org/stable/modules/generated/sklearn.metrics.plot_confusion_matrix.html
-def make_confusion_matrix(y_true, y_pred, classes=None, figsize=(10, 10), text_size=15, norm=False, savefig=False): 
+def make_confusion_matrix(y_true, y_pred, classes=None, figsize=(10, 10), text_size=15, norm=False, savefig=False):
     """
     Makes a labelled confusion matrix comparing predictions and ground truth 
     labels.
@@ -80,7 +80,7 @@ def make_confusion_matrix(y_true, y_pred, classes=None, figsize=(10, 10), text_s
         text_size: Size of output figure text (default=15).
         norm: normalize values or not (default=False).
         savefig: save confusion matrix to file (default=False).
-    
+
     Returns:
         A labelled confusion matrix plot comparing y_true and y_pred.
 
@@ -90,16 +90,17 @@ def make_confusion_matrix(y_true, y_pred, classes=None, figsize=(10, 10), text_s
                             classes=class_names, # array of class label names
                             figsize=(15, 15),
                             text_size=10)
-    """    
+    """
     # Create the confustion matrix
     cm = confusion_matrix(y_true, y_pred)
-    cm_norm = cm.astype("float") / cm.sum(axis=1)[:, np.newaxis] # normalize it
-    n_classes = cm.shape[0] # find the number of classes we're dealing with
+    cm_norm = cm.astype("float") / \
+        cm.sum(axis=1)[:, np.newaxis]  # normalize it
+    n_classes = cm.shape[0]  # find the number of classes we're dealing with
 
     # Plot the figure and make it pretty
     fig, ax = plt.subplots(figsize=figsize)
     # colors will represent how 'correct' a class is, darker == better
-    cax = ax.matshow(cm, cmap=plt.cm.Blues) 
+    cax = ax.matshow(cm, cmap=plt.cm.Blues)
     fig.colorbar(cax)
 
     # Are there a list of classes?
@@ -107,18 +108,18 @@ def make_confusion_matrix(y_true, y_pred, classes=None, figsize=(10, 10), text_s
         labels = classes
     else:
         labels = np.arange(cm.shape[0])
-    
+
     # Label the axes
     ax.set(title="Confusion Matrix",
                  xlabel="Predicted label",
                  ylabel="True label",
                  # create enough axis slots for each class
                  xticks=np.arange(n_classes),
-                 yticks=np.arange(n_classes), 
+                 yticks=np.arange(n_classes),
                  # axes will labeled with class names (if they exist) or ints
-                 xticklabels=labels, 
+                 xticklabels=labels,
                  yticklabels=labels)
-    
+
     # Make x-axis labels appear on bottom
     ax.xaxis.set_label_position("bottom")
     ax.xaxis.tick_bottom()
@@ -130,14 +131,14 @@ def make_confusion_matrix(y_true, y_pred, classes=None, figsize=(10, 10), text_s
     for i, j in itertools.product(range(cm.shape[0]), range(cm.shape[1])):
         if norm:
             plt.text(j, i, f"{cm[i, j]} ({cm_norm[i, j]*100:.1f}%)",
-                            horizontalalignment="center",
-                            color="white" if cm[i, j] > threshold else "black",
-                            size=text_size)
+                     horizontalalignment="center",
+                     color="white" if cm[i, j] > threshold else "black",
+                     size=text_size)
         else:
             plt.text(j, i, f"{cm[i, j]}",
-                            horizontalalignment="center",
-                            color="white" if cm[i, j] > threshold else "black",
-                            size=text_size)
+                     horizontalalignment="center",
+                     color="white" if cm[i, j] > threshold else "black",
+                     size=text_size)
 
     # Save the figure to the current working directory
     if savefig:
@@ -157,18 +158,18 @@ def predict_and_plot(model, filename, class_names):
     pred = model.predict(tf.expand_dims(img, axis=0))
 
     # Get the predicted class
-    if len(pred[0]) > 1: # check for multi-class
-         # if more than one output, take the max
+    if len(pred[0]) > 1:  # check for multi-class
+        # if more than one output, take the max
         pred_class = class_names[pred.argmax()]
     else:
         # if only one output, round
-        pred_class = class_names[int(tf.round(pred)[0][0])] 
+        pred_class = class_names[int(tf.round(pred)[0][0])]
 
     # Plot the image and predicted class
     plt.imshow(img)
     plt.title(f"Prediction: {pred_class}")
-    plt.axis(False);
-    
+    plt.axis(False)
+
 
 def create_tensorboard_callback(dir_name, experiment_name):
     """
@@ -183,7 +184,7 @@ def create_tensorboard_callback(dir_name, experiment_name):
             (e.g. efficientnet_model_1)
     """
     log_dir = dir_name + "/" + experiment_name + "/" \
-            + datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
+        + datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
     tensorboard_callback = TensorBoard(log_dir=log_dir)
     print(f"Saving TensorBoard log files to: {log_dir}")
     return tensorboard_callback
@@ -196,7 +197,7 @@ def plot_loss_curves(history):
     Args:
         history: TensorFlow model History object 
         (see: https://www.tensorflow.org/api_docs/python/tf/keras/callbacks/History)
-    """ 
+    """
     loss = history.history['loss']
     val_loss = history.history['val_loss']
 
@@ -218,61 +219,62 @@ def plot_loss_curves(history):
     plt.plot(epochs, val_accuracy, label='val_accuracy')
     plt.title('Accuracy')
     plt.xlabel('Epochs')
-    plt.legend();
+    plt.legend()
+
 
 def compare_historys(original_history, new_history, initial_epochs=5):
-        """
-        Compares two TensorFlow model History objects.
-        
-        Args:
-            original_history: History object from original model 
-                                (before new_history)
-            new_history: History object from continued model training 
-                            (after original_history)
-            initial_epochs: Number of epochs in original_history 
-                                (new_history plot starts from here) 
-        """
-        
-        # Get original history measurements
-        acc = original_history.history["accuracy"]
-        loss = original_history.history["loss"]
+    """
+    Compares two TensorFlow model History objects.
 
-        val_acc = original_history.history["val_accuracy"]
-        val_loss = original_history.history["val_loss"]
+    Args:
+        original_history: History object from original model 
+                            (before new_history)
+        new_history: History object from continued model training 
+                        (after original_history)
+        initial_epochs: Number of epochs in original_history 
+                            (new_history plot starts from here) 
+    """
 
-        # Combine original history with new history
-        total_acc = acc + new_history.history["accuracy"]
-        total_loss = loss + new_history.history["loss"]
+    # Get original history measurements
+    acc = original_history.history["accuracy"]
+    loss = original_history.history["loss"]
 
-        total_val_acc = val_acc + new_history.history["val_accuracy"]
-        total_val_loss = val_loss + new_history.history["val_loss"]
+    val_acc = original_history.history["val_accuracy"]
+    val_loss = original_history.history["val_loss"]
 
-        # Make plots
-        plt.figure(figsize=(8, 8))
-        plt.subplot(2, 1, 1)
-        plt.plot(total_acc, label='Training Accuracy')
-        plt.plot(total_val_acc, label='Validation Accuracy')
-        plt.plot([initial_epochs-1, initial_epochs-1],
-                            plt.ylim(), label='Start Fine Tuning') # reshift plot around epochs
-        plt.legend(loc='lower right')
-        plt.title('Training and Validation Accuracy')
+    # Combine original history with new history
+    total_acc = acc + new_history.history["accuracy"]
+    total_loss = loss + new_history.history["loss"]
 
-        plt.subplot(2, 1, 2)
-        plt.plot(total_loss, label='Training Loss')
-        plt.plot(total_val_loss, label='Validation Loss')
-        plt.plot([initial_epochs-1, initial_epochs-1],
-                            plt.ylim(), label='Start Fine Tuning') # reshift plot around epochs
-        plt.legend(loc='upper right')
-        plt.title('Training and Validation Loss')
-        plt.xlabel('epoch')
-        plt.show()
-    
-# Create function to unzip a zipfile into current working directory 
-# (since we're going to be downloading and unzipping a few files)
+    total_val_acc = val_acc + new_history.history["val_accuracy"]
+    total_val_loss = val_loss + new_history.history["val_loss"]
+
+    # Make plots
+    plt.figure(figsize=(8, 8))
+    plt.subplot(2, 1, 1)
+    plt.plot(total_acc, label='Training Accuracy')
+    plt.plot(total_val_acc, label='Validation Accuracy')
+    plt.plot([initial_epochs-1, initial_epochs-1],
+             plt.ylim(), label='Start Fine Tuning')  # reshift plot around epochs
+    plt.legend(loc='lower right')
+    plt.title('Training and Validation Accuracy')
+
+    plt.subplot(2, 1, 2)
+    plt.plot(total_loss, label='Training Loss')
+    plt.plot(total_val_loss, label='Validation Loss')
+    plt.plot([initial_epochs-1, initial_epochs-1],
+             plt.ylim(), label='Start Fine Tuning')  # reshift plot around epochs
+    plt.legend(loc='upper right')
+    plt.title('Training and Validation Loss')
+    plt.xlabel('epoch')
+    plt.show()
+
+
+
 def download_and_extract_data(storage_url: str) -> None:
     """
     Download and extract zip files from urls. 
-    
+
     If the zip file is already downloaded or the zip file is already \
         extracted the file and/or folder will be deleted before downloading \
             and unzipping the file. 
@@ -288,22 +290,22 @@ def download_and_extract_data(storage_url: str) -> None:
     print(f"Downloading zip file from storage URL: {storage_url}")
     filename = wget.download(storage_url)
 
-    # Remove previously extracted directory 
+    # Remove previously extracted directory
     if os.path.isdir(filename[:-4]):
         shutil.rmtree(filename[:-4])
 
     with ZipFile(filename, "r") as zip_ref:
         print(f"Extracting from zip file: {filename}")
-        zip_ref.extractall() 
+        zip_ref.extractall()
 
 
-def walk_through_dir(dir_path):
+def walk_through_directory(dir_path):
     """
-    Walks through dir_path returning its contents.
+    Walks through directory path returning its contents.
 
     Args:
         dir_path (str): Target directory
-    
+
     Returns:
         A print out of:
             number of subdiretories in dir_path
@@ -315,7 +317,7 @@ def walk_through_dir(dir_path):
         filenames = [f for f in filenames if not f.startswith(".")]
         print(f"There are {len(dirnames)} directories \
             and {len(filenames)} images in '{dirpath}'.")
-        
+
 
 # Function to evaluate: accuracy, precision, recall, f1-score
 def calculate_results(y_true, y_pred):
@@ -332,9 +334,10 @@ def calculate_results(y_true, y_pred):
     # Calculate model accuracy
     model_accuracy = accuracy_score(y_true, y_pred) * 100
     # Calculate model precision, recall and f1 score using "weighted average
-    model_precision, model_recall, model_f1, _ = precision_recall_fscore_support(y_true, y_pred, average="weighted")
+    model_precision, model_recall, model_f1, _ = precision_recall_fscore_support(
+        y_true, y_pred, average="weighted")
     model_results = {"accuracy": model_accuracy,
-                                    "precision": model_precision,
-                                    "recall": model_recall,
-                                    "f1": model_f1}
+                     "precision": model_precision,
+                     "recall": model_recall,
+                     "f1": model_f1}
     return model_results
