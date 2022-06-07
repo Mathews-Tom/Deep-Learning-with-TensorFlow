@@ -11,14 +11,14 @@ import matplotlib.pyplot as plt
 import numpy as np
 import tensorflow as tf
 import wget
+from keras.callbacks import TensorBoard
 from sklearn.metrics import confusion_matrix, accuracy_score, \
     precision_recall_fscore_support
 
 
 def load_and_preprocess_image(filename, img_shape=224, scale=True) -> tf.Tensor:
     """
-    Reads in an image from filename, turns it into a tensor and reshapes into
-    (224, 224, 3).
+    Reads in an image from filename, turns it into a tensor and reshapes into (224, 224, 3).
 
     Args: 
         filename (str): string filename of target image
@@ -45,8 +45,7 @@ def load_and_preprocess_image(filename, img_shape=224, scale=True) -> tf.Tensor:
 # plot_confusion_matrix function - https://scikit-learn.org/stable/modules/generated/sklearn.metrics.plot_confusion_matrix.html
 def make_confusion_matrix(y_true, y_pred, classes=None, figsize=(10, 10), text_size=15, norm=False, savefig=False):
     """
-    Makes a labelled confusion matrix comparing predictions and ground truth 
-    labels.
+    Makes a labelled confusion matrix comparing predictions and ground truth labels.
 
     If classes is passed, confusion matrix will be labelled, if not, integer 
     class values will be used.
@@ -54,8 +53,7 @@ def make_confusion_matrix(y_true, y_pred, classes=None, figsize=(10, 10), text_s
     Args:
         y_true: Array of truth labels (must be same shape as y_pred).
         y_pred: Array of predicted labels (must be same shape as y_true).
-        classes: Array of class labels (e.g. string form). 
-                                If `None`, integer labels are used.
+        classes: Array of class labels (e.g. string form). If `None`, integer labels are used.
         figsize: Size of output figure (default=(10, 10)).
         text_size: Size of output figure text (default=15).
         norm: normalize values or not (default=False).
@@ -93,11 +91,9 @@ def make_confusion_matrix(y_true, y_pred, classes=None, figsize=(10, 10), text_s
     ax.set(title="Confusion Matrix",
            xlabel="Predicted label",
            ylabel="True label",
-           # create enough axis slots for each class
-           xticks=np.arange(n_classes),
+           xticks=np.arange(n_classes), # create enough axis slots for each class
            yticks=np.arange(n_classes),
-           # axes will labeled with class names (if they exist) or ints
-           xticklabels=labels,
+           xticklabels=labels, # axes will labeled with class names (if they exist) or ints
            yticklabels=labels)
 
     # Make x-axis labels appear on bottom
@@ -128,8 +124,8 @@ def make_confusion_matrix(y_true, y_pred, classes=None, figsize=(10, 10), text_s
 # Make a function to predict on images and plot them (works with multi-class)
 def predict_and_plot(model, filename, class_names):
     """
-    Imports an image located at filename, makes a prediction on it with
-    a trained model and plots the image with the predicted class as the title.
+    Imports an image located at filename, makes a prediction on it with a trained model and plots the image with \
+        the predicted class as the title.
     """
     # Import the target image and preprocess it
     img = load_and_prepare_image(filename)
@@ -156,8 +152,8 @@ def plot_loss_curves(history):
     Returns separate loss curves for training and validation metrics.
 
     Args:
-        history: TensorFlow model History object 
-        (see: https://www.tensorflow.org/api_docs/python/tf/keras/callbacks/History)
+        history: TensorFlow model History object \
+            (see: https://www.tensorflow.org/api_docs/python/tf/keras/callbacks/History)
     """
     loss = history.history['loss']
     val_loss = history.history['val_loss']
@@ -188,12 +184,9 @@ def compare_historys(original_history, new_history, initial_epochs=5):
     Compares two TensorFlow model History objects.
 
     Args:
-        original_history: History object from original model 
-                            (before new_history)
-        new_history: History object from continued model training 
-                        (after original_history)
-        initial_epochs: Number of epochs in original_history 
-                            (new_history plot starts from here) 
+        original_history: History object from original model (before new_history)
+        new_history: History object from continued model training (after original_history)
+        initial_epochs: Number of epochs in original_history (new_history plot starts from here) 
     """
 
     # Get original history measurements
@@ -235,9 +228,8 @@ def download_and_extract_data(storage_url: str) -> None:
     """
     Download and extract zip files from urls. 
 
-    If the zip file is already downloaded or the zip file is already \
-        extracted the file and/or folder will be deleted before downloading \
-            and unzipping the file. 
+    If the zip file is already downloaded or the zip file is already extracted the file and/or folder will \
+        be deleted before downloading and unzipping the file. 
 
     Args:
         storage_url (str): Zip file storage url
@@ -275,15 +267,13 @@ def walk_through_directory(dir_path):
     for dirpath, dirnames, filenames in os.walk(dir_path):
         dirnames = [d for d in dirnames if not d.startswith("_")]
         filenames = [f for f in filenames if not f.startswith(".")]
-        print(f"There are {len(dirnames)} directories \
-            and {len(filenames)} images in '{dirpath}'.")
+        print(f"There are {len(dirnames)} directories and {len(filenames)} images in '{dirpath}'.")
 
 
 # Function to evaluate: accuracy, precision, recall, f1-score
 def calculate_results(y_true, y_pred):
     """
-    Calculates model accuracy, precision, recall and f1 score of a binary \
-        classification model.
+    Calculates model accuracy, precision, recall and f1 score of a binary classification model.
 
     Args:
             y_true: true labels in the form of a 1D array
@@ -294,10 +284,28 @@ def calculate_results(y_true, y_pred):
     # Calculate model accuracy
     model_accuracy = accuracy_score(y_true, y_pred) * 100
     # Calculate model precision, recall and f1 score using "weighted average
-    model_precision, model_recall, model_f1, _ = precision_recall_fscore_support(
-        y_true, y_pred, average="weighted")
+    model_precision, model_recall, model_f1, _ = precision_recall_fscore_support(y_true,
+                                                                                 y_pred,
+                                                                                 average="weighted")
     model_results = {"accuracy": model_accuracy,
                      "precision": model_precision,
                      "recall": model_recall,
                      "f1": model_f1}
     return model_results
+
+def create_tensorboard_callback(dir_name, experiment_name):
+    """
+    Creates a TensorBoard callback instand to store log files.
+
+    Stores log files with the filepath:
+        "dir_name/experiment_name/current_datetime/"
+
+    Args:
+        dir_name: target directory to store TensorBoard log files
+        experiment_name: name of experiment directory \
+            (e.g. efficientnet_model_1)
+    """
+    log_dir = dir_name + "/" + experiment_name + "/" + datetime.now().strftime("%Y%m%d-%H%M%S")
+    tensorboard_callback = TensorBoard(log_dir=log_dir)
+    print(f"Saving TensorBoard log files to: {log_dir}")
+    return tensorboard_callback
