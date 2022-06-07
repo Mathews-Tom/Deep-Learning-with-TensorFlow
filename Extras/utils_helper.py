@@ -179,7 +179,7 @@ def plot_loss_curves(history):
     plt.legend()
 
 
-def compare_historys(original_history, new_history, initial_epochs=5):
+def compare_history(original_history, new_history, initial_epochs=5):
     """
     Compares two TensorFlow model History objects.
 
