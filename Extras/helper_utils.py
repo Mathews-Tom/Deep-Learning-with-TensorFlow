@@ -15,7 +15,8 @@ from IPython.core.ultratb import ColorTB
 from IPython.core.magic import register_cell_magic
 from zipfile import ZipFile
 from keras.callbacks import TensorBoard
-from sklearn.metrics import confusion_matrix
+from sklearn.metrics import confusion_matrix, accuracy_score, \
+    precision_recall_fscore_support
 
 
 @register_cell_magic('handle_exception')
@@ -178,13 +179,12 @@ def create_tensorboard_callback(dir_name, experiment_name):
 
     Args:
         dir_name: target directory to store TensorBoard log files
-        experiment_name: name of experiment directory (e.g. efficientnet_model_1)
+        experiment_name: name of experiment directory \
+            (e.g. efficientnet_model_1)
     """
     log_dir = dir_name + "/" + experiment_name + "/" \
             + datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
-    tensorboard_callback = tf.keras.callbacks.TensorBoard(
-            log_dir=log_dir
-            )
+    tensorboard_callback = TensorBoard(log_dir=log_dir)
     print(f"Saving TensorBoard log files to: {log_dir}")
     return tensorboard_callback
 
@@ -313,11 +313,11 @@ def walk_through_dir(dir_path):
     for dirpath, dirnames, filenames in os.walk(dir_path):
         dirnames = [d for d in dirnames if not d.startswith("_")]
         filenames = [f for f in filenames if not f.startswith(".")]
-        print(f"There are {len(dirnames)} directories and {len(filenames)} images in '{dirpath}'.")
+        print(f"There are {len(dirnames)} directories \
+            and {len(filenames)} images in '{dirpath}'.")
         
-# Function to evaluate: accuracy, precision, recall, f1-score
-from sklearn.metrics import accuracy_score, precision_recall_fscore_support
 
+# Function to evaluate: accuracy, precision, recall, f1-score
 def calculate_results(y_true, y_pred):
     """
     Calculates model accuracy, precision, recall and f1 score of a binary \
