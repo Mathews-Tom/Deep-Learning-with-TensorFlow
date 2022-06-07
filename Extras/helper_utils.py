@@ -280,8 +280,6 @@ def download_and_extract_data(storage_url: str) -> None:
         print(f"Extracting from zip file: {filename}")
         zip_ref.extractall()
 
-    shutil.rmtree("__MACOSX")
-
 
 def walk_through_directory(dir_path):
     """
