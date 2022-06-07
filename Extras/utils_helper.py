@@ -1,34 +1,32 @@
 # We create a bunch of helpful functions throughout the course.
 # Storing them here so they're easily accessible.
 
-import os
 import datetime
 import itertools
+import os
+import shutil
+from zipfile import ZipFile
+
 import matplotlib.pyplot as plt
 import numpy as np
-import shutil
-import sys
 import tensorflow as tf
 import wget
-
-from IPython.core.ultratb import ColorTB
-from IPython.core.magic import register_cell_magic
-from zipfile import ZipFile
-from keras.callbacks import TensorBoard
 from sklearn.metrics import confusion_matrix, accuracy_score, \
     precision_recall_fscore_support
 
 
-def load_and_prepare_image(filename, img_shape=224, scale=True):
+def load_and_preprocess_image(filename, img_shape=224, scale=True) -> tf.Tensor:
     """
     Reads in an image from filename, turns it into a tensor and reshapes into
     (224, 224, 3).
 
-    Parameters
-    ----------
-    filename (str): string filename of target image
-    img_shape (int): size to resize target image to, default 224
-    scale (bool): whether to scale pixel values to range(0, 1), default True
+    Args: 
+        filename (str): string filename of target image
+        img_shape (int): size to resize target image to, default 224
+        scale (bool): whether to scale pixel values to range(0, 1), default True
+    
+    Return:
+        tf.Tensor: Returns the image after loading and preprocessing
     """
     # Read in the image
     img = tf.io.read_file(filename)
@@ -38,7 +36,7 @@ def load_and_prepare_image(filename, img_shape=224, scale=True):
     img = tf.image.resize(img, [img_shape, img_shape])
     if scale:
         # Rescale the image (get all values between 0 and 1)
-        return img/255.
+        return img / 255.
     else:
         return img
 
@@ -76,7 +74,7 @@ def make_confusion_matrix(y_true, y_pred, classes=None, figsize=(10, 10), text_s
     # Create the confustion matrix
     cm = confusion_matrix(y_true, y_pred)
     cm_norm = cm.astype("float") / \
-        cm.sum(axis=1)[:, np.newaxis]  # normalize it
+              cm.sum(axis=1)[:, np.newaxis]  # normalize it
     n_classes = cm.shape[0]  # find the number of classes we're dealing with
 
     # Plot the figure and make it pretty
@@ -93,14 +91,14 @@ def make_confusion_matrix(y_true, y_pred, classes=None, figsize=(10, 10), text_s
 
     # Label the axes
     ax.set(title="Confusion Matrix",
-                 xlabel="Predicted label",
-                 ylabel="True label",
-                 # create enough axis slots for each class
-                 xticks=np.arange(n_classes),
-                 yticks=np.arange(n_classes),
-                 # axes will labeled with class names (if they exist) or ints
-                 xticklabels=labels,
-                 yticklabels=labels)
+           xlabel="Predicted label",
+           ylabel="True label",
+           # create enough axis slots for each class
+           xticks=np.arange(n_classes),
+           yticks=np.arange(n_classes),
+           # axes will labeled with class names (if they exist) or ints
+           xticklabels=labels,
+           yticklabels=labels)
 
     # Make x-axis labels appear on bottom
     ax.xaxis.set_label_position("bottom")
@@ -112,7 +110,7 @@ def make_confusion_matrix(y_true, y_pred, classes=None, figsize=(10, 10), text_s
     # Plot the text on each cell
     for i, j in itertools.product(range(cm.shape[0]), range(cm.shape[1])):
         if norm:
-            plt.text(j, i, f"{cm[i, j]} ({cm_norm[i, j]*100:.1f}%)",
+            plt.text(j, i, f"{cm[i, j]} ({cm_norm[i, j] * 100:.1f}%)",
                      horizontalalignment="center",
                      color="white" if cm[i, j] > threshold else "black",
                      size=text_size)
@@ -151,25 +149,6 @@ def predict_and_plot(model, filename, class_names):
     plt.imshow(img)
     plt.title(f"Prediction: {pred_class}")
     plt.axis(False)
-
-
-def create_tensorboard_callback(dir_name, experiment_name):
-    """
-    Creates a TensorBoard callback instand to store log files.
-
-    Stores log files with the filepath:
-        "dir_name/experiment_name/current_datetime/"
-
-    Args:
-        dir_name: target directory to store TensorBoard log files
-        experiment_name: name of experiment directory \
-            (e.g. efficientnet_model_1)
-    """
-    log_dir = dir_name + "/" + experiment_name + "/" \
-        + datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
-    tensorboard_callback = TensorBoard(log_dir=log_dir)
-    print(f"Saving TensorBoard log files to: {log_dir}")
-    return tensorboard_callback
 
 
 def plot_loss_curves(history):
@@ -236,7 +215,7 @@ def compare_historys(original_history, new_history, initial_epochs=5):
     plt.subplot(2, 1, 1)
     plt.plot(total_acc, label='Training Accuracy')
     plt.plot(total_val_acc, label='Validation Accuracy')
-    plt.plot([initial_epochs-1, initial_epochs-1],
+    plt.plot([initial_epochs - 1, initial_epochs - 1],
              plt.ylim(), label='Start Fine Tuning')  # reshift plot around epochs
     plt.legend(loc='lower right')
     plt.title('Training and Validation Accuracy')
@@ -244,13 +223,12 @@ def compare_historys(original_history, new_history, initial_epochs=5):
     plt.subplot(2, 1, 2)
     plt.plot(total_loss, label='Training Loss')
     plt.plot(total_val_loss, label='Validation Loss')
-    plt.plot([initial_epochs-1, initial_epochs-1],
+    plt.plot([initial_epochs - 1, initial_epochs - 1],
              plt.ylim(), label='Start Fine Tuning')  # reshift plot around epochs
     plt.legend(loc='upper right')
     plt.title('Training and Validation Loss')
     plt.xlabel('epoch')
     plt.show()
-
 
 
 def download_and_extract_data(storage_url: str) -> None:

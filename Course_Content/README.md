@@ -152,7 +152,7 @@ The video content for the course can be found as part of multiple playlists from
 ## 05 - Transfer Learning in TensorFlow - Part 2 :: Fine Tuning
 - [05.01 - Introduction to Transfer Learning in TensorFlow Part 2: Fine-tuning (6:16)]
 - [05.02 - Importing a script full of helper functions (and saving lots of space) (7:35)]
-- [05.03 - Exercise: Imposter Syndrome (2:55)]
+- [05.03 - (Excercise) Imposter Syndrome (2:55)]
 - [05.04 - Downloading and turning our images into a TensorFlow BatchDataset (15:38)]
 - [05.05 - Discussing the four (actually five) modelling experiments we're running (2:15)]
 - [05.06 - Comparing the TensorFlow Keras Sequential API versus the Functional API (2:34)]
