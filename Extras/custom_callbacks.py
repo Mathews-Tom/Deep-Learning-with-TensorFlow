@@ -84,10 +84,10 @@ class LossAndErrorPrintingCallback(tf.keras.callbacks.Callback):
 class EarlyStoppingMinLossCallback(tf.keras.callbacks.Callback):
     """Stop training when the loss is at its min, i.e. the loss stops decreasing.
 
-  Arguments:
-      patience: Number of epochs to wait after min has been hit. After this
-      number of no improvement, training stops.
-  """
+    Args:
+        patience: Number of epochs to wait after min has been hit. After this
+        number of no improvement, training stops.
+    """
 
     def __init__(self, patience=0):
         super(EarlyStoppingMinLossCallback, self).__init__()
@@ -123,31 +123,11 @@ class EarlyStoppingMinLossCallback(tf.keras.callbacks.Callback):
             print("Epoch %05d: early stopping" % (self.stopped_epoch + 1))
 
 
-class TensorBoardCallback(tf.keras.callbacks.Callback):
+class TensorBoardCallback(tf.keras.callbacks.TensorBoard):
     def __init__(self, dir_name, experiment_name):
         self.log_dir = dir_name + "/" + experiment_name + "/" \
                        + datetime.now().strftime("%Y%m%d-%H%M%S")
-
-    def on_train_end(self, logs=None):
         print(f"Saving TensorBoard log files to: {self.log_dir}")
-        return TensorBoard(log_dir=self.log_dir)
-
-
-def create_tensorboard_callback(dir_name, experiment_name):
-    """
-    Creates a TensorBoard callback instand to store log files.
-
-    Stores log files with the filepath:
-        "dir_name/experiment_name/current_datetime/"
-
-    Args:
-        dir_name: target directory to store TensorBoard log files
-        experiment_name: name of experiment directory \
-            (e.g. efficientnet_model_1)
-    """
-    log_dir = dir_name + "/" + experiment_name + "/" + datetime.now().strftime("%Y%m%d-%H%M%S")
-    tensorboard_callback = TensorBoard(log_dir=log_dir)
-    print(f"Saving TensorBoard log files to: {log_dir}")
-    return tensorboard_callback
+        super(TensorBoardCallback, self).__init__(dir_name, experiment_name)
 
 # callbacks = [TimeCallback(), InterruptionCallback()]
