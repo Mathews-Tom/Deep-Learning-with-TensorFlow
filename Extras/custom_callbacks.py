@@ -5,50 +5,19 @@ import numpy as np
 import tensorflow as tf
 from keras.callbacks import TensorBoard
 
-
-class TimeCallback(tf.keras.callbacks.Callback):
-    """
-    Callback to time across training and testing run after each epoch and overall training or teting.
-    """
-    def __init__(self, model_name:str =""):
-        self.times = []
+class TimeAndPerformancePlotCallback(tf.keras.callbacks.Callback):
+    def __init__(self):
+        self.time_started = None
+        self.time_finished = None
+        self.time_curr_epoch = None
+        self.num_epochs = 0
+        self.epoch_times = []
         self.epochs = []
-        self.model_name = model_name
-        # Use this value as reference to calculate cumulative time taken
-        self.start_time = tf.timestamp()
-        self.train_start_time = None
-        self.epoch_start_time = None
-        self.test_start_time = None
-        self.time_taken_plot_file = "time_callback/" 
-        self.time_taken_plot_file += model_name + "_" if bool(model_name) else ""
-        self.time_taken_plot_file += datetime.now().strftime("%Y%m%d-%H%M%S") + ".png"
-
-    def on_epoch_begin(self, epoch, logs=None):
-        self.epoch_start_time = tf.timestamp()
-
-    def on_epoch_end(self, epoch, logs=None):
-        epoch_time_taken = tf.timestamp() - self.epoch_start_time
-        self.times.append(epoch_time_taken)
-        self.epochs.append(epoch)
-        print(f"\nTime taken by epoch {epoch}: {epoch_time_taken:.2f} seconds")
-
-    def on_test_begin(self, logs=None):
-        self.test_start_time = tf.timestamp()
-
-    def on_test_end(self, logs=None):
-        test_end_time = tf.timestamp() - self.train_start_time
-        model_str = f"Model: {self.model_name}:: " if not bool(self.model_name) else ""
-        print(f"\n{model_str}Testing took {test_end_time:.2f} seconds")
-
-    def on_train_begin(self, logs=None):
-        self.train_start_time = tf.timestamp()
-
-    def on_train_end(self, logs=None):
-        model_str = f"Model: {self.model_name}:: " if bool(self.model_name) else ""
-        print(f"\n{model_str}Training took {self.train_end_time:.2f} seconds")
-        self.plot_time_taken(logs)
-
-    def plot_time_taken(self, logs=None):
+        self._loss, self._acc, self._val_loss, self._val_acc = [], [], [], []
+        self.start_stop_sep = "".join(["*"]*100)
+        
+    def _plot_time_taken(self):
+        plt.title("Time taken for Training")
         plt.xlabel("Epoch")
         plt.ylabel("Time taken per epoch (seconds)")
         plt.plot(self.epochs, self.times, 'ro')
@@ -59,7 +28,69 @@ class TimeCallback(tf.keras.callbacks.Callback):
             else:
                 j_prev = self.times[i - 1].numpy()
                 plt.text(i, j, str(round(j - j_prev, 3)))
-        plt.savefig(self.time_taken_plot_file)
+        plt.show()
+    
+    def _plot_model_performance(self):
+        plt.rcParams["figure.figsize"] = (8,8)
+        fig, (ax1, ax2) = plt.subplots(2, 1)
+        fig.suptitle('Model performance', size=20)
+        
+        ax1.plot(range(self.num_epochs), self._loss, label='Training loss')
+        ax1.plot(range(self.num_epochs), self._val_loss, label='Validation loss')
+        ax1.set_xlabel('Epoch', size=14)
+        ax1.set_ylabel('Loss', size=14)
+        ax1.legend()
+        
+        ax2.plot(range(self.num_epochs), self._acc, label='Training accuracy')
+        ax2.plot(range(self.num_epochs), self._val_acc, label='Validation Accuracy')
+        ax2.set_xlabel('Epoch', size=14)
+        ax2.set_ylabel('Accuracy', size=14)
+        ax2.legend()
+        plt.show()
+        
+    def on_train_begin(self, logs=None):
+        self.time_started = datetime.now()
+        print(f'TRAINING STARTED | {self.time_started}\n')
+        print(f"{self.start_stop_sep}\n{self.start_stop_sep}")
+        
+    def on_train_end(self, logs=None):
+        self.time_finished = datetime.now()
+        train_duration = str(self.time_finished - self.time_started)
+        print(f"\n{self.start_stop_sep}\n{self.start_stop_sep}")
+        print(f'TRAINING FINISHED | {self.time_finished} | Duration: {train_duration}')
+        
+        tl = f"Training loss:       {logs['loss']:.5f}"
+        ta = f"Training accuracy:   {logs['accuracy']:.5f}"
+        vl = f"Validation loss:     {logs['val_loss']:.5f}"
+        va = f"Validation accuracy: {logs['val_accuracy']:.5f}"
+        
+        print('\n'.join([tl, vl, ta, va]), "\n")
+        self._plot_time_taken()
+        self._plot_model_performance()
+        
+    def on_epoch_begin(self, epoch, logs=None):
+        self.time_curr_epoch = datetime.now()
+        
+    def on_epoch_end(self, epoch, logs=None):
+        self.num_epochs += 1
+        epoch_duration = (datetime.now() - self.time_curr_epoch).total_seconds()
+        tl = logs['loss']
+        ta = logs['accuracy']
+        vl = logs['val_loss']
+        va = logs['val_accuracy']
+        
+        self._loss.append(tl)
+        self._acc.append(ta)
+        self._val_loss.append(vl)
+        self._val_acc.append(va)
+        
+        self.epoch_times.append(epoch_duration)
+        self.epochs.append(epoch)
+
+        train_metrics = f"train_loss: {tl:.5f}, train_accuracy: {ta:.5f}"
+        valid_metrics = f"valid_loss: {vl:.5f}, valid_accuracy: {va:.5f}"
+        
+        print(f"Epoch: {epoch:4} | Runtime: {epoch_duration:.3f}s | {train_metrics} | {valid_metrics}")
 
 
 class EarlyStoppingDesiredAccuracyCallback(tf.keras.callbacks.Callback):
@@ -129,70 +160,6 @@ class EarlyStoppingMinLossCallback(tf.keras.callbacks.Callback):
         if self.stopped_epoch > 0:
             print("Epoch %05d: early stopping" % (self.stopped_epoch + 1))
 
-
-class TimeAndPlotCallback(tf.keras.callbacks.Callback):
-    def __init__(self):
-        self.time_started = None
-        self.time_finished = None
-        self.time_curr_epoch = None
-        self.num_epochs = 0
-        self._loss, self._acc, self._val_loss, self._val_acc = [], [], [], []
-        
-    def _plot_model_performance(self):
-        plt.rcParams["figure.figsize"] = (8,8)
-        fig, (ax1, ax2) = plt.subplots(2, 1)
-        fig.suptitle('Model performance', size=20)
-        
-        ax1.plot(range(self.num_epochs), self._loss, label='Training loss')
-        ax1.plot(range(self.num_epochs), self._val_loss, label='Validation loss')
-        ax1.set_xlabel('Epoch', size=14)
-        ax1.set_ylabel('Loss', size=14)
-        ax1.legend()
-        
-        ax2.plot(range(self.num_epochs), self._acc, label='Training accuracy')
-        ax2.plot(range(self.num_epochs), self._val_acc, label='Validation Accuracy')
-        ax2.set_xlabel('Epoch', size=14)
-        ax2.set_ylabel('Accuracy', size=14)
-        ax2.legend()
-        plt.show()
-        
-    def on_train_begin(self, logs=None):
-        self.time_started = datetime.now()
-        print(f'TRAINING STARTED | {self.time_started}\n')
-        
-    def on_train_end(self, logs=None):
-        self.time_finished = datetime.now()
-        train_duration = str(self.time_finished - self.time_started)
-        print(f'\nTRAINING FINISHED | {self.time_finished} | Duration: {train_duration}')
-        
-        tl = f"Training loss:       {logs['loss']:.5f}"
-        ta = f"Training accuracy:   {logs['accuracy']:.5f}"
-        vl = f"Validation loss:     {logs['val_loss']:.5f}"
-        va = f"Validation accuracy: {logs['val_accuracy']:.5f}"
-        
-        print('\n'.join([tl, vl, ta, va]))
-        self._plot_model_performance()
-        
-    def on_epoch_begin(self, epoch, logs=None):
-        self.time_curr_epoch = datetime.now()
-        
-    def on_epoch_end(self, epoch, logs=None):
-        self.num_epochs += 1
-        epoch_dur = (datetime.now() - self.time_curr_epoch).total_seconds()
-        tl = logs['loss']
-        ta = logs['accuracy']
-        vl = logs['val_loss']
-        va = logs['val_accuracy']
-        
-        self._loss.append(tl)
-        self._acc.append(ta)
-        self._val_loss.append(vl)
-        self._val_acc.append(va)
-        
-        train_metrics = f"train_loss: {tl:.5f}, train_accuracy: {ta:.5f}"
-        valid_metrics = f"valid_loss: {vl:.5f}, valid_accuracy: {va:.5f}"
-        
-        print(f"Epoch: {epoch:4} | Runtime: {epoch_dur:.3f}s | {train_metrics} | {valid_metrics}")
 
 class TensorBoardCallback():
     """
