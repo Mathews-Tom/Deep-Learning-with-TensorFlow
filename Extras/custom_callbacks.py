@@ -139,7 +139,7 @@ class TimeAndPlotCallback(tf.keras.callbacks.Callback):
         self._loss, self._acc, self._val_loss, self._val_acc = [], [], [], []
         
     def _plot_model_performance(self):
-        plt.figure(figsize=(15, 15))
+        plt.rcParams["figure.figsize"] = (8,8)
         fig, (ax1, ax2) = plt.subplots(2, 1)
         fig.suptitle('Model performance', size=20)
         
@@ -154,6 +154,7 @@ class TimeAndPlotCallback(tf.keras.callbacks.Callback):
         ax2.set_xlabel('Epoch', size=14)
         ax2.set_ylabel('Accuracy', size=14)
         ax2.legend()
+        plt.show()
         
     def on_train_begin(self, logs=None):
         self.time_started = datetime.now()
