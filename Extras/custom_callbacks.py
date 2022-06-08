@@ -138,4 +138,4 @@ class TensorBoardCallback(tf.keras.callbacks.Callback):
         self.log_dir = dir_name + "/" + experiment_name + "/" \
                        + datetime.now().strftime("%Y%m%d-%H%M%S")
         print(f"Saving TensorBoard log files to: {self.log_dir}")
-        TensorBoard(log_dir=self.log_dir)
+        return TensorBoard(log_dir=self.log_dir)
