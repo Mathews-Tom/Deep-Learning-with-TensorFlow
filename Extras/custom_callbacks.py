@@ -17,21 +17,18 @@ class TimeAndPerformancePlotCallback(tf.keras.callbacks.Callback):
         self.start_stop_sep = "".join(["*"]*100)
         
     def _plot_time_taken(self):
-        plt.title("Time taken for Training")
+        plt.rcParams["figure.figsize"] = (8,6)
+        plt.suptitle("Time Taken for Training")
         plt.xlabel("Epoch")
         plt.ylabel("Time taken per epoch (seconds)")
-        plt.plot(self.epochs, self.epoch_times, 'ro')
+        plt.plot(self.epochs, self.epoch_times, 'r')
         for i in range(len(self.epochs)):
-            j = self.epoch_times[i].numpy()
-            if i == 0:
-                plt.text(i, j, str(round(j, 3)))
-            else:
-                j_prev = self.epoch_times[i - 1].numpy()
-                plt.text(i, j, str(round(j - j_prev, 3)))
+            j = self.epoch_times[i]
+            plt.text(i, j, str(round(j, 3)))
         plt.show()
     
     def _plot_model_performance(self):
-        plt.rcParams["figure.figsize"] = (8,8)
+        plt.rcParams["figure.figsize"] = (7,10)
         fig, (ax1, ax2) = plt.subplots(2, 1)
         fig.suptitle('Model performance', size=20)
         
