@@ -20,7 +20,7 @@ class TimeAndPerformancePlotCallback(tf.keras.callbacks.Callback):
         plt.title("Time taken for Training")
         plt.xlabel("Epoch")
         plt.ylabel("Time taken per epoch (seconds)")
-        plt.plot(self.epochs, self.times, 'ro')
+        plt.plot(self.epochs, self.epoch_times, 'ro')
         for i in range(len(self.epochs)):
             j = self.times[i].numpy()
             if i == 0:
