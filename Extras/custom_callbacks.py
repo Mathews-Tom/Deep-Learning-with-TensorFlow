@@ -26,7 +26,7 @@ class TimeAndPerformancePlotCallback(tf.keras.callbacks.Callback):
             if i == 0:
                 plt.text(i, j, str(round(j, 3)))
             else:
-                j_prev = self.times[i - 1].numpy()
+                j_prev = self.epoch_times[i - 1].numpy()
                 plt.text(i, j, str(round(j - j_prev, 3)))
         plt.show()
     
