@@ -130,12 +130,75 @@ class EarlyStoppingMinLossCallback(tf.keras.callbacks.Callback):
             print("Epoch %05d: early stopping" % (self.stopped_epoch + 1))
 
 
-class TensorBoardCallback(tf.keras.callbacks.Callback):
+class TimeAndPlotCallback(tf.keras.callbacks.Callback):
+    def __init__(self):
+        self.time_started = None
+        self.time_finished = None
+        self.time_curr_epoch = None
+        self.num_epochs = 0
+        self._loss, self._acc, self._val_loss, self._val_acc = [], [], [], []
+        
+    def _plot_model_performance(self):
+        fig, (ax1, ax2) = plt.subplots(1, 2)
+        fig.suptitle('Model performance', size=20)
+        
+        ax1.plot(range(self.num_epochs), self._loss, label='Training loss')
+        ax1.plot(range(self.num_epochs), self._val_loss, label='Validation loss')
+        ax1.set_xlabel('Epoch', size=14)
+        ax1.set_ylabel('Loss', size=14)
+        ax1.legend()
+        
+        ax2.plot(range(self.num_epochs), self._acc, label='Training accuracy')
+        ax2.plot(range(self.num_epochs), self._val_acc, label='Validation Accuracy')
+        ax2.set_xlabel('Epoch', size=14)
+        ax2.set_ylabel('Accuracy', size=14)
+        ax2.legend()
+        
+    def on_train_begin(self, logs=None):
+        self.time_started = datetime.now()
+        print(f'TRAINING STARTED | {self.time_started}\n')
+        
+    def on_train_end(self, logs=None):
+        self.time_finished = datetime.now()
+        train_duration = str(self.time_finished - self.time_started)
+        print(f'\nTRAINING FINISHED | {self.time_finished} | Duration: {train_duration}')
+        
+        tl = f"Training loss:       {logs['loss']:.5f}"
+        ta = f"Training accuracy:   {logs['accuracy']:.5f}"
+        vl = f"Validation loss:     {logs['val_loss']:.5f}"
+        va = f"Validation accuracy: {logs['val_accuracy']:.5f}"
+        
+        print('\n'.join([tl, vl, ta, va]))
+        self._plot_model_performance()
+        
+    def on_epoch_begin(self, epoch, logs=None):
+        self.time_curr_epoch = datetime.now()
+        
+    def on_epoch_end(self, epoch, logs=None):
+        self.num_epochs += 1
+        epoch_dur = (datetime.now() - self.time_curr_epoch).total_seconds()
+        tl = logs['loss']
+        ta = logs['accuracy']
+        vl = logs['val_loss']
+        va = logs['val_accuracy']
+        
+        self._loss.append(tl); self._acc.append(ta); self._val_loss.append(vl); self._val_acc.append(va)
+        
+        train_metrics = f"train_loss: {tl:.5f}, train_accuracy: {ta:.5f}"
+        valid_metrics = f"valid_loss: {vl:.5f}, valid_accuracy: {va:.5f}"
+        
+        print(f"Epoch: {epoch:4} | Runtime: {epoch_dur:.3f}s | {train_metrics} | {valid_metrics}")
+
+class TensorBoardCallback():
     """
-    Create a TensorBoard callback  
+    Create a TensorBoard callback.
+
+    Unlike other custom callbacks, this callback extends the pre-build TensorBoard callback.
     """
     def __init__(self, dir_name, experiment_name):
         self.log_dir = dir_name + "/" + experiment_name + "/" \
                        + datetime.now().strftime("%Y%m%d-%H%M%S")
         print(f"Saving TensorBoard log files to: {self.log_dir}")
+    
+    def create(self):
         return TensorBoard(log_dir=self.log_dir)
