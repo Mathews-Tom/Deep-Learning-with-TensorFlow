@@ -7,14 +7,21 @@ from keras.callbacks import TensorBoard
 
 
 class TimeCallback(tf.keras.callbacks.Callback):
-    def __init__(self):
+    """
+    Callback to time across training and testing run after each epoch and overall training or teting.
+    """
+    def __init__(self, model_name:str =""):
         self.times = []
         self.epochs = []
+        self.model_name = model_name
         # Use this value as reference to calculate cumulative time taken
         self.start_time = tf.timestamp()
         self.train_start_time = None
         self.epoch_start_time = None
         self.test_start_time = None
+        self.time_taken_plot_file = "time_callback/" 
+        self.time_taken_plot_file += model_name + "_" if bool(model_name) else ""
+        self.time_taken_plot_file += datetime.now().strftime("%Y%m%d-%H%M%S") + ".png"
 
     def on_epoch_begin(self, epoch, logs=None):
         self.epoch_start_time = tf.timestamp()
@@ -30,14 +37,15 @@ class TimeCallback(tf.keras.callbacks.Callback):
 
     def on_test_end(self, logs=None):
         test_end_time = tf.timestamp() - self.train_start_time
-        print(f"\nTesting took {test_end_time:.2f} seconds")
+        model_str = f"Model: {self.model_name}:: " if not bool(self.model_name) else ""
+        print(f"\n{model_str}Testing took {test_end_time:.2f} seconds")
 
     def on_train_begin(self, logs=None):
         self.train_start_time = tf.timestamp()
 
     def on_train_end(self, logs=None):
-        train_end_time = tf.timestamp() - self.train_start_time
-        print(f"\nTraining took {train_end_time:.2f} seconds")
+        model_str = f"Model: {self.model_name}:: " if bool(self.model_name) else ""
+        print(f"\n{model_str}Training took {self.train_end_time:.2f} seconds")
         self.plot_time_taken(logs)
 
     def plot_time_taken(self, logs=None):
@@ -51,14 +59,13 @@ class TimeCallback(tf.keras.callbacks.Callback):
             else:
                 j_prev = self.times[i - 1].numpy()
                 plt.text(i, j, str(round(j - j_prev, 3)))
-        plt.savefig(datetime.now().strftime("TimeTaken-%Y_%m_%d_%H_%M_%S") + ".png")
+        plt.savefig(self.time_taken_plot_file)
 
 
 class EarlyStoppingDesiredAccuracyCallback(tf.keras.callbacks.Callback):
     """
     Early Stopping at desired accuracy, default 95%, callback.
     """
-
     def __init__(self, desired_accuracy=0.95):
         self.desired_accuracy = desired_accuracy
 
@@ -82,13 +89,13 @@ class LossAndErrorPrintingCallback(tf.keras.callbacks.Callback):
 
 
 class EarlyStoppingMinLossCallback(tf.keras.callbacks.Callback):
-    """Stop training when the loss is at its min, i.e. the loss stops decreasing.
+    """
+    Stop training when the loss is at its min, i.e. the loss stops decreasing.
 
     Args:
         patience: Number of epochs to wait after min has been hit. After this
         number of no improvement, training stops.
     """
-
     def __init__(self, patience=0):
         super(EarlyStoppingMinLossCallback, self).__init__()
         self.patience = patience
@@ -123,11 +130,12 @@ class EarlyStoppingMinLossCallback(tf.keras.callbacks.Callback):
             print("Epoch %05d: early stopping" % (self.stopped_epoch + 1))
 
 
-class TensorBoardCallback(tf.keras.callbacks.TensorBoard):
+class TensorBoardCallback(tf.keras.callbacks.Callback):
+    """
+    Create a TensorBoard callback  
+    """
     def __init__(self, dir_name, experiment_name):
         self.log_dir = dir_name + "/" + experiment_name + "/" \
                        + datetime.now().strftime("%Y%m%d-%H%M%S")
         print(f"Saving TensorBoard log files to: {self.log_dir}")
-        super(TensorBoardCallback, self).__init__(dir_name, experiment_name)
-
-# callbacks = [TimeCallback(), InterruptionCallback()]
+        TensorBoard(log_dir=self.log_dir)
