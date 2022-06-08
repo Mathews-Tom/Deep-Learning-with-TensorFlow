@@ -139,7 +139,8 @@ class TimeAndPlotCallback(tf.keras.callbacks.Callback):
         self._loss, self._acc, self._val_loss, self._val_acc = [], [], [], []
         
     def _plot_model_performance(self):
-        fig, (ax1, ax2) = plt.subplots(1, 2)
+        plt.figure(figsize=(15, 15))
+        fig, (ax1, ax2) = plt.subplots(2, 1)
         fig.suptitle('Model performance', size=20)
         
         ax1.plot(range(self.num_epochs), self._loss, label='Training loss')
@@ -182,7 +183,10 @@ class TimeAndPlotCallback(tf.keras.callbacks.Callback):
         vl = logs['val_loss']
         va = logs['val_accuracy']
         
-        self._loss.append(tl); self._acc.append(ta); self._val_loss.append(vl); self._val_acc.append(va)
+        self._loss.append(tl)
+        self._acc.append(ta)
+        self._val_loss.append(vl)
+        self._val_acc.append(va)
         
         train_metrics = f"train_loss: {tl:.5f}, train_accuracy: {ta:.5f}"
         valid_metrics = f"valid_loss: {vl:.5f}, valid_accuracy: {va:.5f}"
