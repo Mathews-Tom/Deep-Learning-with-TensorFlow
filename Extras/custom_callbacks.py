@@ -22,8 +22,7 @@ class TimeAndPerformancePlotCallback(tf.keras.callbacks.Callback):
         plt.xlabel("Epoch")
         plt.ylabel("Time taken per epoch (seconds)")
         plt.plot(self.epochs, self.epoch_times, 'r')
-        for i in range(len(self.epochs)):
-            j = self.epoch_times[i]
+        for i, j in zip(self.epochs, self.epoch_times):
             plt.text(i, j, str(round(j, 3)))
         plt.show()
     
