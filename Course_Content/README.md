@@ -1,6 +1,6 @@
 # Video Content
 
-The video content for the course can be found as part of multiple playlists from the channel [Artificial Whiteboard](https://www.youtube.com/channel/UCIslxZbyug9pRg00plukOCA). Playlists can be found as seperate playlists based on the different sections as given below or a single uber playlist [TensorFlow Developer Certificate in 2022: Zero to Mastery](https://www.youtube.com/playlist?list=PLcPS3izl8N5sqopxoCdeY0OWPU13Jqlon) with all the video content for anyone to work their way towards taking the TensorFlow Developer Certificate.
+The video content for the course can be found as part of multiple playlists from the channel [Artificial Whiteboard](https://www.youtube.com/channel/UCIslxZbyug9pRg00plukOCA) under the playlist [TensorFlow Developer Certificate](https://www.youtube.com/playlist?list=PLcPS3izl8N5sxZa7Ceu4tv8Y7P4TG_mXE).
 
 ## [Course Outline (5:21)](https://www.youtube.com/watch?v=D1kAy-pkNp4&list=PLcPS3izl8N5sxZa7Ceu4tv8Y7P4TG_mXE&index=1)    
 
@@ -36,7 +36,7 @@ The video content for the course can be found as part of multiple playlists from
 03:43:54 - 00.27 - Exploring TensorFlow and NumPy's compatibility (5.43)    
 03:49:37 - 00.28 - Making sure our tensor operations run really fast on GPUs (10.19)    
 
-## [01 - Neural Network Regression with TensorFlow]
+## [01 - Neural Network Regression with TensorFlow](https://www.youtube.com/watch?v=jLDq7yeLVQ0&list=PLcPS3izl8N5sxZa7Ceu4tv8Y7P4TG_mXE&index=3)
 
 ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ Chapters ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
 00:00:00 - 01.01 - Introduction to Neural Network Regression with TensorFlow (7.33)    
@@ -68,7 +68,7 @@ The video content for the course can be found as part of multiple playlists from
 04:28:08 - 01.27 - Preprocessing data with feature scaling - Part 2 (normalizing our data) (10.57)    
 04:39:05 - 01.28 - Preprocessing data with feature scaling - Part 3 (fitting a model on scaled data) (7.40)    
 
-## [02 - Neural Network Classification in TensorFlow]
+## [02 - Neural Network Classification in TensorFlow](https://www.youtube.com/watch?v=aTw053kfu5Q&list=PLcPS3izl8N5sxZa7Ceu4tv8Y7P4TG_mXE&index=4)
 
 ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ Chapters ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
 00:00:00 - 02.01 - Introduction to neural network classification in TensorFlow (8.25)    
@@ -105,7 +105,7 @@ The video content for the course can be found as part of multiple playlists from
 05:04:38 - 02.32 - Multi-class classification - Part 9 (Visualizing random model predictions) (10.42)    
 05:15:20 - 02.33 - What "patterns" is our model learning? (15.33)    
 
-## [03 - Computer Vision and Convolutional Neural Networks in TensorFlow]
+## [03 - Computer Vision and Convolutional Neural Networks in TensorFlow](https://www.youtube.com/watch?v=i-P3w7QDN-8&list=PLcPS3izl8N5sxZa7Ceu4tv8Y7P4TG_mXE&index=5)
 
 ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ Chapters ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
 00:00:00 - 03.01 - Introduction to Computer Vision with TensorFlow (9.36)    
@@ -145,24 +145,24 @@ The video content for the course can be found as part of multiple playlists from
 05:21:01 - 03.35 - Multi-class CNN's - Part 9 (Making predictions with our model on custom images) (9.22)    
 05:30:24 - 03.36 - Saving and loading our trained CNN model (6.21)    
 
-## 04 - Transfer Learning in TensorFlow - Part 1 :: Feature Extraction
+## [04 - Transfer Learning in TensorFlow - Part 1 :: Feature Extraction](https://www.youtube.com/watch?v=E799buwqA-k&list=PLcPS3izl8N5sxZa7Ceu4tv8Y7P4TG_mXE&index=6)
 
 ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ Chapters ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
-00:00:00 - 04.01 - What is and why use transfer learning? (10.12)    
+00:00:00 - 04.01 - What is and, why use transfer learning? (10.12)    
 00:10:13 - 04.02 - Downloading and preparing data for our first transfer learning model (14.39)    
 00:24:53 - 04.03 - Introducing Callbacks in TensorFlow and making a callback to track our models (10.01)    
 00:34:55 - 04.04 - Exploring the TensorFlow Hub website for pretrained models (9.51)    
 00:44:47 - 04.05 - Building and compiling a TensorFlow Hub feature extraction model (14.00)    
 00:58:48 - 04.06 - Blowing our previous models out of the water with transfer learning (9.13)    
 01:08:02 - 04.07 - Plotting the loss curves of our ResNet feature extraction model (7.35)    
-01:15:38 - 04.08 - Building and training a pre-trained EfficientNet model on our data (9.42)    
+01:15:38 - 04.08 - Building and training a pretrained EfficientNet model on our data (9.42)    
 01:25:21 - 04.09 - Different Types of Transfer Learning (11.40)    
 01:37:02 - 04.10 - Comparing Our Model's Results (15.16)    
 
-## 05 - Transfer Learning in TensorFlow - Part 2 :: Fine Tuning
+## [05 - Transfer Learning in TensorFlow - Part 2 :: Fine-Tuning](https://www.youtube.com/watch?v=biAIFUL7UuQ&list=PLcPS3izl8N5sxZa7Ceu4tv8Y7P4TG_mXE&index=7)
 
 ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ Chapters ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
-00:00:00 - 05.01 - Introduction to Transfer Learning in TensorFlow Part 2: Fine-tuning (6.16)    
+00:00:00 - 05.01 - Introduction to Transfer Learning in TensorFlow - Part 2 (Fine-Tuning) (6.16)    
 00:06:16 - 05.02 - Importing a script full of helper functions (and saving lots of space) (7.35)    
 00:13:52 - 05.03 - (Excercise) Imposter Syndrome (2.55)    
 00:16:48 - 05.04 - Downloading and turning our images into a TensorFlow BatchDataset (15.38)    
@@ -188,3 +188,11 @@ The video content for the course can be found as part of multiple playlists from
 03:41:51 - 05.24 - Fine-tuning Model 4 on 100% of the training data and evaluating its results (10.19)    
 03:52:11 - 05.25 - Comparing our modelling experiment results in TensorBoard (10.46)    
 04:02:58 - 05.26 - How to view and delete previous TensorBoard experiments (2.04)    
+
+## 06 - Transfer Learning in TensorFlow - Part 2 :: Scaling Up
+
+▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ Chapters ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+
+06.01 - Introduction to Transfer Learning - Part 3 (Scaling Up) (6:19)
+
+

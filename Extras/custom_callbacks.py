@@ -5,6 +5,7 @@ import numpy as np
 import tensorflow as tf
 from keras.callbacks import TensorBoard
 
+
 class TimeAndPerformancePlotCallback(tf.keras.callbacks.Callback):
     def __init__(self):
         self.time_started = None
@@ -18,9 +19,9 @@ class TimeAndPerformancePlotCallback(tf.keras.callbacks.Callback):
         
     def _plot_time_taken(self):
         plt.rcParams["figure.figsize"] = (8,6)
-        plt.suptitle("Time Taken for Training")
+        plt.suptitle("Training Time")
         plt.xlabel("Epoch")
-        plt.ylabel("Time taken per epoch (seconds)")
+        plt.ylabel("Time per epoch (seconds)")
         plt.plot(self.epochs, self.epoch_times, 'r')
         for i, j in zip(self.epochs, self.epoch_times):
             plt.text(i, j, str(round(j, 3)))
@@ -112,7 +113,7 @@ class LossAndErrorPrintingCallback(tf.keras.callbacks.Callback):
 
     def on_epoch_end(self, epoch, logs=None):
         print(f"The average loss for epoch {epoch} is {logs['loss']:7.2f} \
-        and mean absolute error is {logs['mean_absolute_error']:7.2f}.")
+            and mean absolute error is {logs['mean_absolute_error']:7.2f}.")
 
 
 class EarlyStoppingMinLossCallback(tf.keras.callbacks.Callback):
