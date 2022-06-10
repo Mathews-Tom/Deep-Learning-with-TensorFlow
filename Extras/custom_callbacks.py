@@ -158,7 +158,7 @@ class EarlyStoppingMinLossCallback(tf.keras.callbacks.Callback):
             print("Epoch %05d: early stopping" % (self.stopped_epoch + 1))
 
 
-class TensorBoardCallback():
+class TensorBoardCallback(TensorBoard):
     """
     Create a TensorBoard callback.
 
@@ -168,6 +168,4 @@ class TensorBoardCallback():
         self.log_dir = dir_name + "/" + experiment_name + "/" \
                        + datetime.now().strftime("%Y%m%d-%H%M%S")
         print(f"Saving TensorBoard log files to: {self.log_dir}")
-    
-    def create(self):
-        return TensorBoard(log_dir=self.log_dir)
+        super().__init__(log_dir=self.log_dir)

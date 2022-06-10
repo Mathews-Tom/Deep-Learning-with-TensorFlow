@@ -128,7 +128,7 @@ def predict_and_plot(model, filename, class_names):
         the predicted class as the title.
     """
     # Import the target image and preprocess it
-    img = load_and_prepare_image(filename)
+    img = load_and_preprocess_image(filename)
 
     # Make a prediction
     pred = model.predict(tf.expand_dims(img, axis=0))

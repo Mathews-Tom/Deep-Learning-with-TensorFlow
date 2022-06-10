@@ -193,6 +193,26 @@ The video content for the course can be found as part of multiple playlists from
 
 ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ Chapters ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
 
-06.01 - Introduction to Transfer Learning - Part 3 (Scaling Up) (6:19)
-
+06.01 - Introduction to Transfer Learning - Part 3 (Scaling Up) (6.19)    
+06.02 - Getting helper functions ready and downloading data to model (13.34)    
+06.03 - Outlining the model we're going to build and building a ModelCheckpoint callback (5.38)    
+06.04 - Creating a data augmentation layer to use with our model (4.39)    
+06.05 - Creating a headless EfficientNetB0 model with data augmentation built in (8.58)    
+06.06 - Fitting and evaluating our biggest transfer learning model yet (7.56)    
+06.07 - Unfreezing some layers in our base model to prepare for fine-tuning (11.28)    
+06.08 - Fine-tuning our feature extraction model and evaluating its performance (8.23)    
+06.09 - Saving and loading our trained model (6.25)    
+06.10 - Downloading a pretrained model to make and evaluate predictions with (6.34)    
+06.11 - Making predictions with our trained model on 25,250 test samples (12.46)    
+06.12 - Unravelling our test dataset for comparing ground truth labels to predictions (6.05)    
+06.13 - Confirming our model's predictions are in the same order as the test labels (5.17)    
+06.14 - Creating a confusion matrix for our model's 101 different classes (12.07)    
+06.15 - Evaluating every individual class in our dataset (14.16)    
+06.17 - Plotting our model's F1-scores for each separate class (7.36)    
+06.18 - Creating a function to load and prepare images for making predictions (12.08)    
+06.19 - Making predictions on our test images and evaluating them (16.06)    
+06.20 - Discussing the benefits of finding your model's most wrong predictions (6.09)    
+06.21 - Writing code to uncover our model's most wrong predictions (11.16)    
+06.22 - Plotting and visualizing the samples our model got most wrong (10.36)    
+06.22 - Making predictions on and plotting our own custom images (9.49)    
 
