@@ -34,11 +34,8 @@ def load_and_preprocess_image(filename, img_shape=224, scale=True) -> tf.Tensor:
     img = tf.image.decode_jpeg(img)
     # Resize the image
     img = tf.image.resize(img, [img_shape, img_shape])
-    if scale:
-        # Rescale the image (get all values between 0 and 1)
-        return img / 255.
-    else:
-        return img
+    # Rescale the image (get all values between 0 and 1)
+    return img / 255. if scale else img
 
 
 # Note: The following confusion matrix code is a remix of Scikit-Learn's

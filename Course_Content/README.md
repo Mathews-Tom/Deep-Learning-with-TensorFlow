@@ -2,7 +2,9 @@
 
 The video content for the course can be found as part of multiple playlists from the channel [Artificial Whiteboard](https://www.youtube.com/channel/UCIslxZbyug9pRg00plukOCA) under the playlist [TensorFlow Developer Certificate](https://www.youtube.com/playlist?list=PLcPS3izl8N5sxZa7Ceu4tv8Y7P4TG_mXE).
 
+
 ## [Course Outline (5:21)](https://www.youtube.com/watch?v=D1kAy-pkNp4&list=PLcPS3izl8N5sxZa7Ceu4tv8Y7P4TG_mXE&index=1)    
+
 
 ## [00 - Deep Learning and TensorFlow Fundamentals](https://www.youtube.com/watch?v=YdqgT0IicIw&list=PLcPS3izl8N5sxZa7Ceu4tv8Y7P4TG_mXE&index=2)
 
@@ -36,6 +38,7 @@ The video content for the course can be found as part of multiple playlists from
 03:43:54 - 00.27 - Exploring TensorFlow and NumPy's compatibility (5.43)    
 03:49:37 - 00.28 - Making sure our tensor operations run really fast on GPUs (10.19)    
 
+
 ## [01 - Neural Network Regression with TensorFlow](https://www.youtube.com/watch?v=jLDq7yeLVQ0&list=PLcPS3izl8N5sxZa7Ceu4tv8Y7P4TG_mXE&index=3)
 
 ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ Chapters ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
@@ -68,13 +71,14 @@ The video content for the course can be found as part of multiple playlists from
 04:28:08 - 01.27 - Preprocessing data with feature scaling - Part 2 (normalizing our data) (10.57)    
 04:39:05 - 01.28 - Preprocessing data with feature scaling - Part 3 (fitting a model on scaled data) (7.40)    
 
+
 ## [02 - Neural Network Classification in TensorFlow](https://www.youtube.com/watch?v=aTw053kfu5Q&list=PLcPS3izl8N5sxZa7Ceu4tv8Y7P4TG_mXE&index=4)
 
 ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ Chapters ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
 00:00:00 - 02.01 - Introduction to neural network classification in TensorFlow (8.25)    
 00:08:26 - 02.02 - Example classification problems (and their inputs and outputs) (6.38)    
 00:15:04 - 02.03 - Input and output tensors of classification problems (6.21)    
-00:021:26 - 02.04 - Typical architecture of neural network classification models with TensorFlow (9.36)    
+00:21:26 - 02.04 - Typical architecture of neural network classification models with TensorFlow (9.36)    
 00:31:03 - 02.05 - Creating and viewing classification data to model (11.34)    
 00:42:38 - 02.06 - Checking the input and output shapes of our classification data (4.38)    
 00:47:16 - 02.07 - Building a not very good classification model with TensorFlow (12.10)    
@@ -104,6 +108,7 @@ The video content for the course can be found as part of multiple playlists from
 05:00:11 - 02.31 - Multi-class classification - Part 8 (Creating a confusion matrix) (4.26)    
 05:04:38 - 02.32 - Multi-class classification - Part 9 (Visualizing random model predictions) (10.42)    
 05:15:20 - 02.33 - What "patterns" is our model learning? (15.33)    
+
 
 ## [03 - Computer Vision and Convolutional Neural Networks in TensorFlow](https://www.youtube.com/watch?v=i-P3w7QDN-8&list=PLcPS3izl8N5sxZa7Ceu4tv8Y7P4TG_mXE&index=5)
 
@@ -145,7 +150,8 @@ The video content for the course can be found as part of multiple playlists from
 05:21:01 - 03.35 - Multi-class CNN's - Part 9 (Making predictions with our model on custom images) (9.22)    
 05:30:24 - 03.36 - Saving and loading our trained CNN model (6.21)    
 
-## [04 - Transfer Learning in TensorFlow - Part 1 :: Feature Extraction](https://www.youtube.com/watch?v=E799buwqA-k&list=PLcPS3izl8N5sxZa7Ceu4tv8Y7P4TG_mXE&index=6)
+
+## [04 - Transfer Learning in TensorFlow - Part 1 - Feature Extraction](https://www.youtube.com/watch?v=E799buwqA-k&list=PLcPS3izl8N5sxZa7Ceu4tv8Y7P4TG_mXE&index=6)
 
 ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ Chapters ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
 00:00:00 - 04.01 - What is and, why use transfer learning? (10.12)    
@@ -159,7 +165,8 @@ The video content for the course can be found as part of multiple playlists from
 01:25:21 - 04.09 - Different Types of Transfer Learning (11.40)    
 01:37:02 - 04.10 - Comparing Our Model's Results (15.16)    
 
-## [05 - Transfer Learning in TensorFlow - Part 2 :: Fine-Tuning](https://www.youtube.com/watch?v=biAIFUL7UuQ&list=PLcPS3izl8N5sxZa7Ceu4tv8Y7P4TG_mXE&index=7)
+
+## [05 - Transfer Learning in TensorFlow - Part 2 (Fine-Tuning)](https://www.youtube.com/watch?v=biAIFUL7UuQ&list=PLcPS3izl8N5sxZa7Ceu4tv8Y7P4TG_mXE&index=7)
 
 ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ Chapters ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
 00:00:00 - 05.01 - Introduction to Transfer Learning in TensorFlow - Part 2 (Fine-Tuning) (6.16)    
@@ -189,30 +196,57 @@ The video content for the course can be found as part of multiple playlists from
 03:52:11 - 05.25 - Comparing our modelling experiment results in TensorBoard (10.46)    
 04:02:58 - 05.26 - How to view and delete previous TensorBoard experiments (2.04)    
 
-## 06 - Transfer Learning in TensorFlow - Part 2 :: Scaling Up
+
+## [06 - Transfer Learning in TensorFlow - Part 3 (Scaling Up)](https://www.youtube.com/watch?v=0KXMNLZd9ZY&list=PLcPS3izl8N5sxZa7Ceu4tv8Y7P4TG_mXE&index=8)
 
 ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ Chapters ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+00:00:00 - 06.01 - Introduction to Transfer Learning - Part 3 (Scaling Up) (6.19)    
+00:06:20 - 06.02 - Getting helper functions ready and downloading data to model (13.34)    
+00:19:55 - 06.03 - Outlining the model we're going to build and building a ModelCheckpoint callback (5.38)    
+00:25:34 - 06.04 - Creating a data augmentation layer to use with our model (4.39)    
+00:30:14 - 06.05 - Creating a headless EfficientNetB0 model with data augmentation built in (8.58)    
+00:39:13 - 06.06 - Fitting and evaluating our biggest transfer learning model yet (7.56)    
+00:47:10 - 06.07 - Unfreezing some layers in our base model to prepare for fine-tuning (11.28)    
+00:58:39 - 06.08 - Fine-tuning our feature extraction model and evaluating its performance (8.23)    
+01:07:31 - 06.09 - Saving and loading our trained model (6.25)    
+01:13:30 - 06.10 - Downloading a pretrained model to make and evaluate predictions with (6.34)    
+01:20:05 - 06.11 - Making predictions with our trained model on 25,250 test samples (12.46)    
+01:32:52 - 06.12 - Unravelling our test dataset for comparing ground truth labels to predictions (6.05)    
+01:38:57 - 06.13 - Confirming our model's predictions are in the same order as the test labels (5.17)    
+01:44:15 - 06.14 - Creating a confusion matrix for our model's 101 different classes (12.07)    
+01:56:23 - 06.15 - Evaluating every individual class in our dataset (14.16)    
+02:10:41 - 06.16 - Plotting our model's F1-scores for each separate class (7.36)    
+02:18:17 - 06.17 - Creating a function to load and prepare images for making predictions (12.08)    
+02:30:27 - 06.18 - Making predictions on our test images and evaluating them (16.06)    
+02:46:34 - 06.19 - Discussing the benefits of finding your model's most wrong predictions (6.09)    
+02:52:44 - 06.20 - Writing code to uncover our model's most wrong predictions (11.16)    
+03:04:01 - 06.21 - Plotting and visualizing the samples our model got most wrong (10.36)    
+03:14:38 - 06.22 - Making predictions on and plotting our own custom images (9.49)    
 
-06.01 - Introduction to Transfer Learning - Part 3 (Scaling Up) (6.19)    
-06.02 - Getting helper functions ready and downloading data to model (13.34)    
-06.03 - Outlining the model we're going to build and building a ModelCheckpoint callback (5.38)    
-06.04 - Creating a data augmentation layer to use with our model (4.39)    
-06.05 - Creating a headless EfficientNetB0 model with data augmentation built in (8.58)    
-06.06 - Fitting and evaluating our biggest transfer learning model yet (7.56)    
-06.07 - Unfreezing some layers in our base model to prepare for fine-tuning (11.28)    
-06.08 - Fine-tuning our feature extraction model and evaluating its performance (8.23)    
-06.09 - Saving and loading our trained model (6.25)    
-06.10 - Downloading a pretrained model to make and evaluate predictions with (6.34)    
-06.11 - Making predictions with our trained model on 25,250 test samples (12.46)    
-06.12 - Unravelling our test dataset for comparing ground truth labels to predictions (6.05)    
-06.13 - Confirming our model's predictions are in the same order as the test labels (5.17)    
-06.14 - Creating a confusion matrix for our model's 101 different classes (12.07)    
-06.15 - Evaluating every individual class in our dataset (14.16)    
-06.17 - Plotting our model's F1-scores for each separate class (7.36)    
-06.18 - Creating a function to load and prepare images for making predictions (12.08)    
-06.19 - Making predictions on our test images and evaluating them (16.06)    
-06.20 - Discussing the benefits of finding your model's most wrong predictions (6.09)    
-06.21 - Writing code to uncover our model's most wrong predictions (11.16)    
-06.22 - Plotting and visualizing the samples our model got most wrong (10.36)    
-06.22 - Making predictions on and plotting our own custom images (9.49)    
 
+## 07 - Milestone Project 1 - Food Vision Big™
+
+▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ Chapters ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+00:00:00 - 07.01 - Introduction to Milestone Project 1 (Food Vision Big™) (5.44)    
+00:05:44 - 07.02 - Making sure we have access to the right GPU for mixed precision training (10.17)    
+00:16:02 - 07.03 - Getting helper functions ready (3.06)    
+00:19:09 - 07.04 - Introduction to TensorFlow Datasets (TFDS) (12.03)    
+00:31:13 - 07.05 - Exploring and becoming one with the data (Food101 from TensorFlow Datasets) (15.56)    
+00:47:10 - 07.06 - Creating a preprocessing function to prepare our data for modelling (15.50)    
+01:03:01 - 07.07 - Batching and preparing our datasets (to make them run fast) (13.47)    
+01:16:49 - 07.08 - Exploring what happens when we batch and prefetch our data (6.49)    
+01:23:39 - 07.09 - Creating modelling callbacks for our feature extraction model (7.14)    
+01:30:54 - 07.10 - Turning on mixed precision training with TensorFlow (10.05)    
+01:40:59 - 07.11 - Creating a feature extraction model capable of using mixed precision training (12.42)    
+01:53:43 - 07.12 - Checking to see if our model is using mixed precision training layer by layer (7.56)    
+02:01:40 - 07.13 - Training and evaluating a feature extraction model (Food Vision Big™) (10.19)    
+02:12:00 - 07.14 - Introducing your Milestone Project 1 challenge (Build a model to beat DeepFood) (7.47)    
+
+
+## 08 - NLP Fundamentals in TensorFlow
+
+▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ Chapters ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+08.01 - Introduction to Natural Language Processing (NLP) and Sequence Problems (12.51)
+08.02 - Example NLP inputs and outputs (7.22)
+08.03 - The typical architecture of a Recurrent Neural Network (RNN) (9.03)
+08.04 - Preparing a notebook for our first NLP with TensorFlow project (8.52)
