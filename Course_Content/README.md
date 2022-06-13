@@ -3,10 +3,10 @@
 The video content for the course can be found as part of multiple playlists from the channel [Artificial Whiteboard](https://www.youtube.com/channel/UCIslxZbyug9pRg00plukOCA) under the playlist [TensorFlow Developer Certificate](https://www.youtube.com/playlist?list=PLcPS3izl8N5sxZa7Ceu4tv8Y7P4TG_mXE).
 
 
-## [Course Outline (5:21)](https://www.youtube.com/watch?v=D1kAy-pkNp4&list=PLcPS3izl8N5sxZa7Ceu4tv8Y7P4TG_mXE&index=1)    
+## [Course Outline (5:21)](https://www.youtube.com/watch?v=D1kAy-pkNp4)    
 
 
-## [00 - Deep Learning and TensorFlow Fundamentals](https://www.youtube.com/watch?v=YdqgT0IicIw&list=PLcPS3izl8N5sxZa7Ceu4tv8Y7P4TG_mXE&index=2)
+## [00 - Deep Learning and TensorFlow Fundamentals](https://www.youtube.com/watch?v=YdqgT0IicIw)
 
 ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ Chapters ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
 00:00:00 - 00.01 - What is deep learning? (4.38)    
@@ -39,7 +39,7 @@ The video content for the course can be found as part of multiple playlists from
 03:49:37 - 00.28 - Making sure our tensor operations run really fast on GPUs (10.19)    
 
 
-## [01 - Neural Network Regression with TensorFlow](https://www.youtube.com/watch?v=jLDq7yeLVQ0&list=PLcPS3izl8N5sxZa7Ceu4tv8Y7P4TG_mXE&index=3)
+## [01 - Neural Network Regression with TensorFlow](https://www.youtube.com/watch?v=jLDq7yeLVQ0)
 
 ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ Chapters ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
 00:00:00 - 01.01 - Introduction to Neural Network Regression with TensorFlow (7.33)    
@@ -72,7 +72,7 @@ The video content for the course can be found as part of multiple playlists from
 04:39:05 - 01.28 - Preprocessing data with feature scaling - Part 3 (fitting a model on scaled data) (7.40)    
 
 
-## [02 - Neural Network Classification in TensorFlow](https://www.youtube.com/watch?v=aTw053kfu5Q&list=PLcPS3izl8N5sxZa7Ceu4tv8Y7P4TG_mXE&index=4)
+## [02 - Neural Network Classification in TensorFlow](https://www.youtube.com/watch?v=aTw053kfu5Q)
 
 ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ Chapters ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
 00:00:00 - 02.01 - Introduction to neural network classification in TensorFlow (8.25)    
@@ -110,7 +110,7 @@ The video content for the course can be found as part of multiple playlists from
 05:15:20 - 02.33 - What "patterns" is our model learning? (15.33)    
 
 
-## [03 - Computer Vision and Convolutional Neural Networks in TensorFlow](https://www.youtube.com/watch?v=i-P3w7QDN-8&list=PLcPS3izl8N5sxZa7Ceu4tv8Y7P4TG_mXE&index=5)
+## [03 - Computer Vision and Convolutional Neural Networks in TensorFlow](https://www.youtube.com/watch?v=i-P3w7QDN-8)
 
 ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ Chapters ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
 00:00:00 - 03.01 - Introduction to Computer Vision with TensorFlow (9.36)    
@@ -151,7 +151,7 @@ The video content for the course can be found as part of multiple playlists from
 05:30:24 - 03.36 - Saving and loading our trained CNN model (6.21)    
 
 
-## [04 - Transfer Learning in TensorFlow - Part 1 - Feature Extraction](https://www.youtube.com/watch?v=E799buwqA-k&list=PLcPS3izl8N5sxZa7Ceu4tv8Y7P4TG_mXE&index=6)
+## [04 - Transfer Learning in TensorFlow - Part 1 - Feature Extraction](https://www.youtube.com/watch?v=E799buwqA-k)
 
 ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ Chapters ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
 00:00:00 - 04.01 - What is and, why use transfer learning? (10.12)    
@@ -166,7 +166,7 @@ The video content for the course can be found as part of multiple playlists from
 01:37:02 - 04.10 - Comparing Our Model's Results (15.16)    
 
 
-## [05 - Transfer Learning in TensorFlow - Part 2 (Fine-Tuning)](https://www.youtube.com/watch?v=biAIFUL7UuQ&list=PLcPS3izl8N5sxZa7Ceu4tv8Y7P4TG_mXE&index=7)
+## [05 - Transfer Learning in TensorFlow - Part 2 (Fine-Tuning)](https://www.youtube.com/watch?v=biAIFUL7UuQ)
 
 ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ Chapters ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
 00:00:00 - 05.01 - Introduction to Transfer Learning in TensorFlow - Part 2 (Fine-Tuning) (6.16)    
@@ -197,7 +197,7 @@ The video content for the course can be found as part of multiple playlists from
 04:02:58 - 05.26 - How to view and delete previous TensorBoard experiments (2.04)    
 
 
-## [06 - Transfer Learning in TensorFlow - Part 3 (Scaling Up)](https://www.youtube.com/watch?v=0KXMNLZd9ZY&list=PLcPS3izl8N5sxZa7Ceu4tv8Y7P4TG_mXE&index=8)
+## [06 - Transfer Learning in TensorFlow - Part 3 (Scaling Up)](https://www.youtube.com/watch?v=0KXMNLZd9ZY)
 
 ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ Chapters ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
 00:00:00 - 06.01 - Introduction to Transfer Learning - Part 3 (Scaling Up) (6.19)    
@@ -224,7 +224,7 @@ The video content for the course can be found as part of multiple playlists from
 03:14:38 - 06.22 - Making predictions on and plotting our own custom images (9.49)    
 
 
-## 07 - Milestone Project 1 - Food Vision Big™
+## [07 - Milestone Project 1 - Food Vision Big™](https://www.youtube.com/watch?v=DHAliaKd-mk)
 
 ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ Chapters ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
 00:00:00 - 07.01 - Introduction to Milestone Project 1 (Food Vision Big™) (5.44)    
@@ -245,8 +245,37 @@ The video content for the course can be found as part of multiple playlists from
 
 ## 08 - NLP Fundamentals in TensorFlow
 
-▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ Chapters ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
-08.01 - Introduction to Natural Language Processing (NLP) and Sequence Problems (12.51)
-08.02 - Example NLP inputs and outputs (7.22)
-08.03 - The typical architecture of a Recurrent Neural Network (RNN) (9.03)
-08.04 - Preparing a notebook for our first NLP with TensorFlow project (8.52)
+▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ Chapters ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬    
+08.01 - Introduction to Natural Language Processing (NLP) and Sequence Problems (12.51)    
+08.02 - Example NLP inputs and outputs (7.22)    
+08.03 - The typical architecture of a Recurrent Neural Network (RNN) (9.03)    
+08.04 - Preparing a notebook for our first NLP with TensorFlow project (8.52)    
+08.05 - Becoming one with the data and visualizing a text dataset (16.41)    
+08.06 - Splitting data into training and validation sets (6.26)    
+08.07 - Converting text data to numbers using tokenisation and embeddings (overview) (9.22)    
+08.08 - Setting up a TensorFlow TextVectorization layer to convert text to numbers (17.10)    
+08.09 - Mapping the TextVectorization layer to text data and turning it into numbers (11.02)    
+08.10 - Creating an Embedding layer to turn tokenised text into embedding vectors (12.27)    
+08.11 - Discussing the various modelling experiments we're going to run (8.57)    
+08.12 - Model 0: Building a baseline model to try and improve upon (9.25)    
+08.13 - Creating a function to track and evaluate our model's results (12.14)    
+08.14 - Model 1: Building, fitting and evaluating our first deep model on text data (20.51)    
+08.15 - Visualizing our model's learned word embeddings with TensorFlow's projector tool (20.43)    
+08.16 - High-level overview of Recurrent Neural Networks (RNNs) + where to learn more (9.34)    
+08.17 - Model 2: Building, fitting and evaluating our first TensorFlow RNN model (LSTM) (18.16)    
+08.18 - Model 3: Building, fitting and evaluating a GRU-cell powered RNN (16.56)    
+08.19 - Model 4: Building, fitting and evaluating a bidirectional RNN model (19.34)    
+08.20 - Discussing the intuition behind Conv1D neural networks for text and sequences (19.31)    
+08.21 - Model 5: Building, fitting and evaluating a 1D CNN for text (9.57)    
+08.22 - Using TensorFlow Hub for pretrained word embeddings (transfer learning for NLP) (13.45)    
+08.23 - Model 6: Building, training and evaluating a transfer learning model for NLP (10.45)    
+08.24 - Preparing subsets of data for model 7 (same as model 6 but 10% of data) (10.52)    
+08.25 - Model 7: Building, training and evaluating a transfer learning model on 10% data (10.04)    
+08.26 - Fixing our data leakage issue with model 7 and retraining it (13.42)    
+08.27 - Comparing all our modelling experiments evaluation metrics (13.14)    
+08.28 - Uploading our model's training logs to TensorBoard and comparing them (11.14)    
+08.29 - Uploading our model's training logs to TensorBoard and comparing them (11.14)    
+08.30 - Downloading a pretrained model and preparing data to investigate predictions (13.24)    
+08.31 - Visualizing our model's most wrong predictions (8.28)    
+08.32 - Making and visualizing predictions on the test dataset (8.27)    
+08.33 - Understanding the concept of the speed/score tradeoff (15.01)    

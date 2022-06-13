@@ -7,7 +7,7 @@ from keras.callbacks import TensorBoard
 
 
 class TimeAndPerformancePlotCallback(tf.keras.callbacks.Callback):
-    def __init__(self):
+    def __init__(self, show_text=True):
         self.time_started = None
         self.time_finished = None
         self.time_curr_epoch = None
@@ -16,6 +16,7 @@ class TimeAndPerformancePlotCallback(tf.keras.callbacks.Callback):
         self.epochs = []
         self._loss, self._acc, self._val_loss, self._val_acc = [], [], [], []
         self.start_stop_sep = "".join(["*"]*100)
+        self.show_text = show_text
         
     def _plot_time_taken(self):
         plt.rcParams["figure.figsize"] = (8,6)
@@ -23,8 +24,9 @@ class TimeAndPerformancePlotCallback(tf.keras.callbacks.Callback):
         plt.xlabel("Epoch")
         plt.ylabel("Time per epoch (seconds)")
         plt.plot(self.epochs, self.epoch_times, 'r')
-        for i, j in zip(self.epochs, self.epoch_times):
-            plt.text(i, j, str(round(j, 3)))
+        if self.show_text:
+            for i, j in zip(self.epochs, self.epoch_times):
+                plt.text(i, j, str(round(j, 3)))
         plt.show()
     
     def _plot_model_performance(self):
