@@ -1,19 +1,15 @@
 # We create a bunch of helpful functions throughout the course.
 # Storing them here so they're easily accessible.
 
-import datetime
 import itertools
 import os
 import shutil
-from zipfile import ZipFile
+import subprocess
 
 import matplotlib.pyplot as plt
 import numpy as np
 import tensorflow as tf
-import wget
-from keras.callbacks import TensorBoard
-from sklearn.metrics import confusion_matrix, accuracy_score, \
-    precision_recall_fscore_support
+from sklearn.metrics import confusion_matrix, accuracy_score, precision_recall_fscore_support
 
 
 def load_and_preprocess_image(filename, img_shape=224, scale=True) -> tf.Tensor:
@@ -88,9 +84,9 @@ def make_confusion_matrix(y_true, y_pred, classes=None, figsize=(10, 10), text_s
     ax.set(title="Confusion Matrix",
            xlabel="Predicted label",
            ylabel="True label",
-           xticks=np.arange(n_classes), # create enough axis slots for each class
+           xticks=np.arange(n_classes),  # create enough axis slots for each class
            yticks=np.arange(n_classes),
-           xticklabels=labels, # axes will labeled with class names (if they exist) or ints
+           xticklabels=labels,  # axes will labeled with class names (if they exist) or ints
            yticklabels=labels)
 
     # Make x-axis labels appear on bottom
@@ -221,6 +217,20 @@ def compare_histories(original_history, new_history, initial_epochs=5):
     plt.show()
 
 
+def run_cmd(cmd, verbose=False, *args, **kwargs):
+    """
+    Run system command as a subprocess
+    """
+    process = subprocess.Popen(cmd,
+                               stdout=subprocess.PIPE,
+                               stderr=subprocess.PIPE,
+                               text=True,
+                               shell=True)
+    std_out, std_err = process.communicate()
+    if verbose:
+        print(std_out.strip(), std_err)
+
+
 def download_and_extract_data(storage_url: str) -> None:
     """
     Download and extract zip files from urls. 
@@ -237,15 +247,14 @@ def download_and_extract_data(storage_url: str) -> None:
         os.remove(zip_file_basename)
 
     print(f"Downloading zip file from storage URL: {storage_url}")
-    filename = wget.download(storage_url)
+    run_cmd(f"wget -q {storage_url}")
 
     # Remove previously extracted directory
-    if os.path.isdir(filename[:-4]):
-        shutil.rmtree(filename[:-4])
+    if os.path.isdir(zip_file_basename[:-4]):
+        shutil.rmtree(zip_file_basename[:-4])
 
-    with ZipFile(filename, "r") as zip_ref:
-        print(f"Extracting from zip file: {filename}")
-        zip_ref.extractall()
+    print(f"Extracting from zip file: {zip_file_basename}")
+    run_cmd(f"unzip -q {zip_file_basename} -d {zip_file_basename[:-4]}")
 
 
 def walk_through_directory(dir_path):
@@ -257,12 +266,12 @@ def walk_through_directory(dir_path):
 
     Returns:
         A print out of:
-            number of subdiretories in dir_path
+            number of subdirectories in dir_path
             number of images (files) in each subdirectory
             name of each subdirectory
     """
     for dirpath, dirnames, filenames in os.walk(dir_path):
-        dirnames = [d for d in dirnames if not d.startswith("_")]
+        dirnames = [d for d in dirnames if not d.startswith("__")]
         filenames = [f for f in filenames if not f.startswith(".")]
         print(f"There are {len(dirnames)} directories and {len(filenames)} images in '{dirpath}'.")
 
@@ -289,21 +298,3 @@ def calculate_results(y_true, y_pred):
                      "recall": model_recall,
                      "f1": model_f1}
     return model_results
-
-def create_tensorboard_callback(dir_name, experiment_name):
-    """
-    Creates a TensorBoard callback instand to store log files.
-
-    Stores log files with the filepath:
-        "dir_name/experiment_name/current_datetime/"
-
-    Args:
-        dir_name: target directory to store TensorBoard log files
-        experiment_name: name of experiment directory \
-            (e.g. efficientnet_model_1)
-    """
-    log_dir = dir_name + "/" + experiment_name + "/" + \
-        datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
-    tensorboard_callback = TensorBoard(log_dir=log_dir)
-    print(f"Saving TensorBoard log files to: {log_dir}")
-    return tensorboard_callback
