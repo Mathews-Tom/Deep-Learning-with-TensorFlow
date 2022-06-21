@@ -281,7 +281,7 @@ The video content for the course can be found as part of multiple playlists from
 06:42:14 - 08.33 - Understanding the concept of the speed/score tradeoff (15.01)    
 
 
-## 09 - Milestone Project 2 - SkimLit
+## [09 - Milestone Project 2 - SkimLit](https://www.youtube.com/watch?v=RW90m0u95Po)
 
 ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ Chapters ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬    
 00:00:00 - 09.01 - Introduction to Milestone Project 2. SkimLit (14.20)    
@@ -294,13 +294,13 @@ The video content for the course can be found as part of multiple playlists from
 01:28:52 - 09.08 - Turning our target labels into numbers (ML models require numbers) (13.15)    
 01:42:08 - 09.09 - Model 0. Creating, fitting and evaluating a baseline model for SkimLit (9.25)    
 01:51:34 - 09.10 - Preparing our data for deep sequence models (9.55)    
-02:01:30 - 09.11 - Creating a text vectoriser to map our tokens (text) to numbers (14.07)    
+02:01:30 - 09.11 - Creating a text vectorizer to map our tokens (text) to numbers (14.07)    
 02:15:39 - 09.12 - Creating a custom token embedding layer with TensorFlow (9.14)    
 02:24:53 - 09.13 - Creating fast loading dataset with the TensorFlow tf.data API (9.49)    
 02:34:44 - 09.14 - Model 1. Building, fitting and evaluating a Conv1D with token embeddings (17.21)    
 02:52:06 - 09.15 - Preparing a pretrained embedding layer from TensorFlow Hub for Model 2 (10.53)    
 03:03:00 - 09.16 - Model 2. Building, fitting and evaluating a Conv1D model with token embeddings (11.30)    
-03:14:32 - 09.17 - Creating a character-level tokeniser with TensorFlow's TextVectorization layer (23.24)    
+03:14:32 - 09.17 - Creating a character-level tokenizer with TensorFlow's TextVectorization layer (23.24)    
 03:37:57 - 09.18 - Creating a character-level embedding layer with tf.keras.layers.Embedding (7.44)    
 03:45:42 - 09.19 - Model 3. Building, fitting and evaluating a Conv1D model on character embeddings (13.45)    
 03:59:29 - 09.20 - Discussing how we're going to build Model 4 (character + token embeddings) (6.04)    
