@@ -339,7 +339,10 @@ def mean_absolute_scaled_error(y_true, y_pred):
 
 def evaluate_time_series_preds(y_true, y_pred):
     """
-    Evaluate Time Series Predictions.
+    Evaluate Time Series Predictions and return metrics.
+
+    Returns:
+        dict: Metrics dictionary with keys 'mae', 'mse', 'mape', and 'mase'
     """
     # Make sure float32 (for metric calculations)
     y_true = tf.cast(y_true, dtype=tf.float32)
