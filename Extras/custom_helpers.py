@@ -298,3 +298,24 @@ def calculate_results(y_true, y_pred):
                      "recall": model_recall,
                      "f1": model_f1}
     return model_results
+
+# Create a function to plot time series data
+def plot_time_series(timesteps, values, format='.', start=0, end=None, label=None):
+    """
+    Plots a timesteps (a series of points in time) against values (a series of values across timesteps).
+    
+    Args:
+        timesteps (float): array of timesteps
+        values (float): array of values across time
+        format (str): style of plot, default "."
+        start (int): where to start the plot (setting a value will index from start of timesteps & values)
+        end (int): where to end the plot (setting a value will index from end of timesteps & values)
+        label (str): label to show on plot of values
+    """
+    # Plot the series
+    plt.plot(timesteps[start:end], values[start:end], format, label=label)
+    plt.xlabel("Time")
+    plt.ylabel("BTC Price")
+    if label:
+        plt.legend(fontsize=14) # make label bigger
+    plt.grid(True)
