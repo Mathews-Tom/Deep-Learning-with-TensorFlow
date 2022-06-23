@@ -1,8 +1,10 @@
+import os
 from datetime import datetime
 
 import matplotlib.pyplot as plt
 import numpy as np
 import tensorflow as tf
+from keras.callbacks import ModelCheckpoint
 from keras.callbacks import TensorBoard
 
 
@@ -164,10 +166,22 @@ class TensorBoardCallback(TensorBoard):
     """
     Create a TensorBoard callback.
 
-    Unlike other custom callbacks, this callback extends the pre-build TensorBoard callback.
+    This callback extends the pre-built TensorBoard callback.
     """
     def __init__(self, dir_name, experiment_name):
         self.log_dir = dir_name + "/" + experiment_name + "/" \
                        + datetime.now().strftime("%Y%m%d-%H%M%S")
         print(f"Saving TensorBoard log files to: {self.log_dir}")
         super().__init__(log_dir=self.log_dir)
+
+
+class ModelCheckpointCallback(ModelCheckpoint):
+    """
+    Create a ModelCheckpoint callback.
+    
+    This callback extends the pre-built ModelCheckpoint callback.
+    """
+    def __init__(self, model_name, save_path="model_experiments"):
+        super().__init__(filepath=os.path.join(save_path, model_name),
+                        verbose=0,
+                        save_best_only=True)
