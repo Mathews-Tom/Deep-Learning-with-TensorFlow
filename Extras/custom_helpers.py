@@ -351,6 +351,14 @@ def evaluate_time_series_preds(y_true, y_pred):
     rmse = tf.sqrt(mse)
     mape = tf.keras.metrics.mean_absolute_percentage_error(y_true, y_pred)
     mase = mean_absolute_scaled_error(y_true, y_pred)
+
+    # If metric isn't already a scalar, reduce it to one by aggregating tensors to mean
+    if mae.ndim > 0:
+        mae = tf.reduce_mean(mae)
+        mse = tf.reduce_mean(mse)
+        rmse = tf.reduce_mean(rmse)
+        mape = tf.reduce_mean(mape)
+        mase = tf.reduce_mean(mase)
     
     return {"mae": mae.numpy(),
             "mse": mse.numpy(),
