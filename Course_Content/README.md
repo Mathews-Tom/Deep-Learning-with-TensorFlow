@@ -8,7 +8,7 @@ The video content for the course can be found as part of multiple playlists from
 
 ## [00 - Deep Learning and TensorFlow Fundamentals](https://www.youtube.com/watch?v=YdqgT0IicIw)
 
-▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ Chapters ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ Chapters ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬    
 00:00:00 - 00.01 - What is deep learning? (4.38)    
 00:04:38 - 00.02 - Why use deep learning? (9.38)    
 00:14:17 - 00.03 - What are neural networks? (10.26)    
@@ -41,7 +41,7 @@ The video content for the course can be found as part of multiple playlists from
 
 ## [01 - Neural Network Regression with TensorFlow](https://www.youtube.com/watch?v=jLDq7yeLVQ0)
 
-▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ Chapters ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ Chapters ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬    
 00:00:00 - 01.01 - Introduction to Neural Network Regression with TensorFlow (7.33)    
 00:07:34 - 01.02 - Inputs and outputs of a neural network regression model (8.59)    
 00:16:33 - 01.03 - Anatomy and architecture of a neural network regression model (7.55)    
@@ -74,7 +74,7 @@ The video content for the course can be found as part of multiple playlists from
 
 ## [02 - Neural Network Classification in TensorFlow](https://www.youtube.com/watch?v=aTw053kfu5Q)
 
-▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ Chapters ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ Chapters ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬    
 00:00:00 - 02.01 - Introduction to neural network classification in TensorFlow (8.25)    
 00:08:26 - 02.02 - Example classification problems (and their inputs and outputs) (6.38)    
 00:15:04 - 02.03 - Input and output tensors of classification problems (6.21)    
@@ -112,7 +112,7 @@ The video content for the course can be found as part of multiple playlists from
 
 ## [03 - Computer Vision and Convolutional Neural Networks in TensorFlow](https://www.youtube.com/watch?v=i-P3w7QDN-8)
 
-▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ Chapters ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ Chapters ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬    
 00:00:00 - 03.01 - Introduction to Computer Vision with TensorFlow (9.36)    
 00:09:36 - 03.02 - Introduction to Convolutional Neural Networks (CNNs) with TensorFlow (7.59)    
 00:17:36 - 03.03 - Downloading an image dataset for our first Food Vision model (8.27)    
@@ -153,7 +153,7 @@ The video content for the course can be found as part of multiple playlists from
 
 ## [04 - Transfer Learning in TensorFlow - Part 1 - Feature Extraction](https://www.youtube.com/watch?v=E799buwqA-k)
 
-▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ Chapters ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ Chapters ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬    
 00:00:00 - 04.01 - What is and, why use transfer learning? (10.12)    
 00:10:13 - 04.02 - Downloading and preparing data for our first transfer learning model (14.39)    
 00:24:53 - 04.03 - Introducing Callbacks in TensorFlow and making a callback to track our models (10.01)    
@@ -168,7 +168,7 @@ The video content for the course can be found as part of multiple playlists from
 
 ## [05 - Transfer Learning in TensorFlow - Part 2 (Fine-Tuning)](https://www.youtube.com/watch?v=biAIFUL7UuQ)
 
-▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ Chapters ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ Chapters ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬    
 00:00:00 - 05.01 - Introduction to Transfer Learning in TensorFlow - Part 2 (Fine-Tuning) (6.16)    
 00:06:16 - 05.02 - Importing a script full of helper functions (and saving lots of space) (7.35)    
 00:13:52 - 05.03 - (Excercise) Imposter Syndrome (2.55)    
@@ -199,7 +199,7 @@ The video content for the course can be found as part of multiple playlists from
 
 ## [06 - Transfer Learning in TensorFlow - Part 3 (Scaling Up)](https://www.youtube.com/watch?v=0KXMNLZd9ZY)
 
-▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ Chapters ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ Chapters ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬    
 00:00:00 - 06.01 - Introduction to Transfer Learning - Part 3 (Scaling Up) (6.19)    
 00:06:20 - 06.02 - Getting helper functions ready and downloading data to model (13.34)    
 00:19:55 - 06.03 - Outlining the model we're going to build and building a ModelCheckpoint callback (5.38)    
@@ -226,7 +226,7 @@ The video content for the course can be found as part of multiple playlists from
 
 ## [07 - Milestone Project 1 - Food Vision Big™](https://www.youtube.com/watch?v=DHAliaKd-mk)
 
-▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ Chapters ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ Chapters ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬    
 00:00:00 - 07.01 - Introduction to Milestone Project 1 (Food Vision Big™) (5.44)    
 00:05:44 - 07.02 - Making sure we have access to the right GPU for mixed precision training (10.17)    
 00:16:02 - 07.03 - Getting helper functions ready (3.06)    
