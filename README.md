@@ -2,10 +2,8 @@
 
 ![VisitorsBadge](https://visitor-badge-reloaded.herokuapp.com/badge?page_id=Deep_Learning_with_TensorFlow&color=55acb7&style=for-the-badge&logo=Github)    
 
-[![Languages](https://img.shields.io/github/languages/count/Mathews-Tom/Deep_Learning_with_TensorFlow?style=flat-square
-)](#)
-[![Top Languages](https://img.shields.io/github/languages/top/Mathews-Tom/Deep_Learning_with_TensorFlow?style=flat-square
-)](#)
+[![Languages](https://img.shields.io/github/languages/count/Mathews-Tom/Deep_Learning_with_TensorFlow?style=flat-square)](#)
+[![Top Languages](https://img.shields.io/github/languages/top/Mathews-Tom/Deep_Learning_with_TensorFlow?style=flat-square)](#)
 
 My course work for the course [Zero to Mastery - Deep Learning with TensorFlow](https://dbourke.link/ZTMTFcourse) with references to original material and my personalized notes and content.
 
