@@ -1,6 +1,6 @@
 # Video Content
 
-The video content for the course can be found as part of multiple playlists from the channel [Artificial Whiteboard](https://www.youtube.com/channel/UCIslxZbyug9pRg00plukOCA) under the playlist [TensorFlow Developer Certificate](https://www.youtube.com/playlist?list=PLcPS3izl8N5sxZa7Ceu4tv8Y7P4TG_mXE).
+The course video content for the course can be found as part of the YouTube playlists from the channel [Artificial Whiteboard](https://www.youtube.com/channel/UCIslxZbyug9pRg00plukOCA) under the playlist [TensorFlow Developer Certificate](https://www.youtube.com/playlist?list=PLcPS3izl8N5sxZa7Ceu4tv8Y7P4TG_mXE).
 
 
 ## [Course Outline (5:21)](https://www.youtube.com/watch?v=D1kAy-pkNp4)    
