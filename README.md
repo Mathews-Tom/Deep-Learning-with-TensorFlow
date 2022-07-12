@@ -13,3 +13,5 @@ PS: The notebooks offered in the original repo has been modified to reflect my l
 - [Extras](Extras) - All helper custom helper scripts used across different notebooks.
 - [Notebooks](Notebooks) - All the notebooks created through the course with my personal modifications.
 - [Slides](Slides) - Course content slides
+
+[Course Material](https://github.com/Mathews-Tom/ZTM-Course-Contents/tree/main/Deep_Learning_with_TensorFlow)
